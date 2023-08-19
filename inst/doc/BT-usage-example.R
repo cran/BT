@@ -7,127 +7,230 @@
 ## -----------------------------------------------------------------------------
 library(BT)
 
-## -----------------------------------------------------------------------------
-set.seed(4)
-n <- 50000
+## ---- tidy=TRUE---------------------------------------------------------------
+db <- BT::BT_Simulated_Data
 
-Gender <- factor(sample(c("male","female"),n,replace=TRUE))
-Age <- sample(c(18:65),n,replace=TRUE)
-Split <- factor(sample(c("yes","no"),n,replace=TRUE))
-Sport <- factor(sample(c("yes","no"),n,replace=TRUE))
+## ---- tidy=TRUE---------------------------------------------------------------
+str(db)
+head(db)
 
-lambda <- 0.1*ifelse(Gender=="male",1.1,1)
-lambda <- lambda*(1+1/(Age-17)^0.5)
-lambda <- lambda*ifelse(Sport=="yes",1.15,1)
+## ---- tidy=TRUE---------------------------------------------------------------
+summary(db)
 
-ExpoR <- runif(n)
+## ---- tidy=TRUE---------------------------------------------------------------
+sum(db$Y)/sum(db$ExpoR)
 
-Y <- rpois(n, ExpoR*lambda)
-Y_normalized <- Y/ExpoR
+## ---- tidy=TRUE---------------------------------------------------------------
+set.seed(404)
+trainObs <- sample(seq(1, nrow(db)), 0.8*nrow(db))
+trainSet <- db[trainObs,]
+testSet <- db[setdiff(seq(1, nrow(db)), trainObs),]
 
-dataset <- data.frame(Y,Gender,Age,Split,Sport,ExpoR, Y_normalized)
+sum(trainSet$Y)/sum(trainSet$ExpoR)
+sum(testSet$Y)/sum(testSet$ExpoR)
 
-## -----------------------------------------------------------------------------
-BT_algo <- BT(formula = as.formula("Y_normalized ~ Age + Sport + Split + Gender"),
-              data = dataset,
-              ABT = F,
-              n.iter = 300,
-              train.fraction = 0.8,
-              interaction.depth = 4,
-              shrinkage = 0.01,
-              bag.fraction = 0.5,
-              colsample.bytree = 3,
-              keep.data = T,
-              is.verbose = F,
+## ---- tidy=TRUE---------------------------------------------------------------
+formFreq <- Y_normalized ~ Gender + Age + Split + Sport
+
+## ---- tidy=TRUE---------------------------------------------------------------
+bt0 <- BT(formula = formFreq,
+          data = trainSet,
+          tweedie.power = 1,
+          ABT = FALSE,
+          n.iter = 50,
+          train.fraction = 0.8,
+          interaction.depth = 3,
+          shrinkage = 0.01,
+          bag.fraction = 0.5,
+          colsample.bytree = NULL,
+          keep.data = TRUE,
+          is.verbose = FALSE,
+          cv.folds = 1,
+          folds.id = NULL,
+          n.cores = 1,
+          weights = ExpoR,
+          seed = 4)
+
+## ---- tidy=TRUE---------------------------------------------------------------
+bt0$call
+bt0$distribution
+bt0$BTParams
+bt0$keep.data
+bt0$is.verbose
+bt0$seed
+#bt0$w / bt0$response / bt0$var.name
+
+## ---- tidy=TRUE---------------------------------------------------------------
+print(bt0)
+
+## ---- tidy=TRUE---------------------------------------------------------------
+str(bt0$BTInit)
+
+## ---- tidy=TRUE---------------------------------------------------------------
+str(bt0$BTData)
+
+## ---- tidy=TRUE---------------------------------------------------------------
+head(bt0$fitted.values, 5)
+str(bt0$BTErrors)
+
+## ---- tidy=TRUE---------------------------------------------------------------
+length(bt0$BTIndivFits)
+# First tree in the expansion.
+bt0$BTIndivFits[[1]]
+bt0$BTIndivFits[[1]]$frame
+
+## ---- tidy=TRUE, fig.align='center'-------------------------------------------
+perfbt0_OOB <- BT_perf(bt0, method="OOB", oobag.curve = TRUE)
+perfbt0_OOB
+
+## ---- tidy=TRUE, fig.align='center'-------------------------------------------
+perfbt0_val <- BT_perf(bt0, method="validation")
+perfbt0_val
+
+## ---- tidy=TRUE---------------------------------------------------------------
+perfbt0_BG <- BT_perf(bt0, plot.it = FALSE)
+perfbt0_BG
+
+## ---- tidy=TRUE---------------------------------------------------------------
+bt1 <- BT_more(bt0, new.n.iter = 150, seed = 4)
+# See parameters and different inputs.
+bt1$BTParams$n.iter
+
+## ---- tidy=TRUE---------------------------------------------------------------
+perfbt1_OOB <- BT_perf(bt1, method = 'OOB', plot.it = FALSE)
+perfbt1_val <- BT_perf(bt1, method = 'validation', plot.it = FALSE)
+perfbt1_OOB
+perfbt1_val
+
+## ---- tidy=TRUE---------------------------------------------------------------
+bt2 <- BT(formula = formFreq, 
+          data = trainSet,
+          tweedie.power = 1,
+          ABT = FALSE,
+          n.iter = 200,
+          train.fraction = 1,
+          interaction.depth = 3,
+          shrinkage = 0.01,
+          bag.fraction = 0.5,
+          colsample.bytree = NULL,
+          keep.data = TRUE,
+          is.verbose = FALSE,
+          cv.folds = 3,
+          folds.id = NULL,
+          n.cores = 1,
+          weights = ExpoR,
+          seed = 4)
+
+## ---- tidy=TRUE---------------------------------------------------------------
+bt2$cv.folds
+str(bt2$folds)
+str(bt2$cv.fitted)
+str(bt2$BTErrors)
+
+## ---- tidy=TRUE, fig.align='center'-------------------------------------------
+perfbt2_cv <- BT_perf(bt2, method = 'cv')
+
+## ---- tidy=TRUE---------------------------------------------------------------
+bt3 <- BT(formula = formFreq, 
+          data = trainSet,
+          tweedie.power = 1,
+          ABT = FALSE,
+          n.iter = 225,
+          train.fraction = 1,
+          interaction.depth = 2,
+          shrinkage = 0.01,
+          bag.fraction = 0.5,
+          colsample.bytree = NULL,
+          keep.data = TRUE,
+          is.verbose = FALSE,
+          cv.folds = 3,
+          folds.id = NULL,
+          n.cores = 1,
+          weights = ExpoR,
+          seed = 4)
+
+## ---- tidy=TRUE---------------------------------------------------------------
+indexMin <- which.min(c(min(bt2$BTErrors$cv.error), min(bt3$BTErrors$cv.error)))
+btOpt <- if(indexMin==1) bt2 else bt3
+perfbtOpt_cv <- BT_perf(btOpt, method='cv', plot.it=FALSE)
+
+btOpt
+perfbtOpt_cv
+
+## ---- tidy=TRUE---------------------------------------------------------------
+summary(btOpt, n.iter = perfbtOpt_cv)
+
+## ---- tidy=TRUE---------------------------------------------------------------
+head(predict(btOpt, n.iter = c(BT_perf(btOpt, method='OOB', plot.it=FALSE), perfbtOpt_cv), type = 'link'), 10) 
+head(predict(btOpt, n.iter = c(BT_perf(btOpt, method='OOB', plot.it=FALSE), perfbtOpt_cv), type = 'response'), 10)
+
+## ---- tidy=TRUE---------------------------------------------------------------
+head(predict(btOpt, n.iter = 40, type = 'response', single.iter = TRUE), 10)
+
+## ---- tidy=TRUE---------------------------------------------------------------
+nIterVec <- 225
+interactionDepthVec <- c(2, 3)
+shrinkageVec <- 0.01
+bagFractionVec <- 0.5
+
+gridSearch <- expand.grid(n.iter = nIterVec,
+                          interaction.depth = interactionDepthVec, 
+                          shrinkage = shrinkageVec, 
+                          bag.fraction = bagFractionVec)
+gridSearch
+
+## ---- tidy=TRUE---------------------------------------------------------------
+abtRes_cv <- list()
+for (iGrid in seq(1, nrow(gridSearch)))
+{
+  currABT <- BT(formula = formFreq, 
+              data = trainSet,
+              tweedie.power = 1,
+              ABT = TRUE,
+              n.iter = gridSearch[iGrid, "n.iter"],
+              train.fraction = 1,
+              interaction.depth = gridSearch[iGrid, "interaction.depth"],
+              shrinkage = gridSearch[iGrid, "shrinkage"],
+              bag.fraction = gridSearch[iGrid, "bag.fraction"],
+              colsample.bytree = NULL,
+              keep.data = FALSE,
+              is.verbose = FALSE,
               cv.folds = 3,
               folds.id = NULL,
               n.cores = 1,
               weights = ExpoR,
-              seed = 44)
+              seed = 4)
+  
+  abtRes_cv[[iGrid]] <- currABT
+}
 
-## -----------------------------------------------------------------------------
-# 'Fitting parameters
-BT_algo$call
-BT_algo$distribution
-BT_algo$BTParams
-BT_algo$keep.data
-BT_algo$is.verbose
-BT_algo$seed
-BT_algo$cv.folds # #used folds
-head(BT_algo$folds, 10) # folds created.
-# Name of weights, response and explnatory variables used
-BT_algo$w
-BT_algo$response
-BT_algo$var.name
+## ---- tidy=TRUE, fig.align='center'-------------------------------------------
+perfabt1_cv <- BT_perf(abtRes_cv[[1]], method='cv', plot.it=TRUE)
+perfabt2_cv <- BT_perf(abtRes_cv[[2]], method='cv', plot.it=TRUE)
 
-## -----------------------------------------------------------------------------
-# Tweedie with intercept only.
-BT_algo$BTInit$initFit 
-# Init training error
-BT_algo$BTInit$training.error
-# Init validation error
-BT_algo$BTInit$validation.error
+## ---- tidy=TRUE---------------------------------------------------------------
+indexMin <- which.min(c(min(abtRes_cv[[1]]$BTErrors$cv.error), min(abtRes_cv[[2]]$BTErrors$cv.error)))
+abtOpt <- if (indexMin==1) abtRes_cv[[1]] else abtRes_cv[[2]]
+perfabtOpt_cv <- if (indexMin==1) perfabt1_cv else perfabt2_cv
 
-## -----------------------------------------------------------------------------
-head(BT_algo$BTData$training.set)
-head(BT_algo$BTData$validation.set, 5)
+abtOpt
+abtOpt$BTParams$interaction.depth
+perfabtOpt_cv
 
-## -----------------------------------------------------------------------------
-# Obtained fitting results at the end - Full BT and CV. 
-head(BT_algo$fitted.values)
-head(BT_algo$cv.fitted) # cv fitted.
-# Errors computed.
-head(BT_algo$BTErrors$training.error)
-head(BT_algo$BTErrors$validation.error)
-head(BT_algo$BTErrors$oob.improvement)
-head(BT_algo$BTErrors$cv.error)
+## ---- tidy=TRUE---------------------------------------------------------------
+table(sapply(seq(1, perfbtOpt_cv), function(xx){nrow(btOpt$BTIndivFits[[xx]]$frame[btOpt$BTIndivFits[[xx]]$frame$var != "<leaf>",])}))
+table(sapply(seq(1, perfabtOpt_cv), function(xx){nrow(abtOpt$BTIndivFits[[xx]]$frame[abtOpt$BTIndivFits[[xx]]$frame$var != "<leaf>",])}))
 
-## -----------------------------------------------------------------------------
-BT_algo$BTIndivFits[[1]] # First tree in the expansion
-# One can also access to the usual tree outputs.
-head(BT_algo$BTIndivFits[[1]]$frame)
+## ---- tidy=TRUE---------------------------------------------------------------
+btPredTest <- predict(btOpt, newdata = testSet, n.iter = perfbtOpt_cv, type = "response") * testSet$ExpoR
+abtPredTest <- predict(abtOpt, newdata = testSet, n.iter = perfabtOpt_cv, type = "response") * testSet$ExpoR
 
-## -----------------------------------------------------------------------------
-optimal_perf_validation <- BT_perf(BT_algo, method='validation')
-optimal_perf_oob <- BT_perf(BT_algo, method='OOB', oobag.curve = TRUE, overlay = TRUE)
-optimal_perf_cv <- BT_perf(BT_algo, method='cv')
-optimal_perf_best_guest <- BT_perf(BT_algo, plot.it = FALSE)
+## ---- tidy=TRUE---------------------------------------------------------------
+devPoisson <- function(obs, pred) {
+    2 * (sum(dpois(x = obs, lambda = obs, log = TRUE)) - sum(dpois(x = obs, lambda = pred, log = TRUE)))
+}
 
-## -----------------------------------------------------------------------------
-summary(BT_algo)
-
-## -----------------------------------------------------------------------------
-# Predict (response scale) using all trees up to best validation iteration. 
-head(predict(BT_algo, n.iter = optimal_perf_validation, type = 'response'), 10)
-# Predict (link scale) using all trees up the best iteration OOB/CV.
-head(predict(BT_algo, newdata = dataset, n.iter = c(optimal_perf_oob, optimal_perf_cv), type = 'link'), 10) 
-# Predict using only the 40th tree.
-head(predict(BT_algo, n.iter = 40, type = 'response', single.iter = TRUE), 10) 
-
-## -----------------------------------------------------------------------------
-print(BT_algo)
-
-## -----------------------------------------------------------------------------
-BT_algo <- BT(formula = as.formula("Y_normalized ~ Age + Sport + Split + Gender"),
-              data = dataset,
-              ABT = F,
-              n.iter = 300,
-              train.fraction = 0.8,
-              interaction.depth = 4,
-              shrinkage = 0.01,
-              bag.fraction = 0.5,
-              colsample.bytree = 3,
-              keep.data = T,
-              is.verbose = F,
-              cv.folds = 1,
-              folds.id = NULL,
-              n.cores = 1,
-              weights = ExpoR,
-              seed = 44)
-
-## -----------------------------------------------------------------------------
-BT_algo_contd <- BT_more(BT_algo, new.n.iter = 100, seed = 404)
-# See parameter, predict, ...
-BT_algo_contd$BTParams$n.iter
-head(predict(BT_algo_contd, n.iter = 350, type='link'), 10)
+## ---- tidy=TRUE---------------------------------------------------------------
+devPoisson(testSet$Y, btPredTest)
+devPoisson(testSet$Y, abtPredTest)
 

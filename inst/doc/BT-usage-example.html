@@ -12,7 +12,7 @@
 
 <meta name="author" content="Gireg Willame" />
 
-<meta name="date" content="2023-01-28" />
+<meta name="date" content="2023-08-19" />
 
 <title>Getting started with the BT package</title>
 
@@ -31,22 +31,23 @@ document.addEventListener('DOMContentLoaded', function(e) {
 </script>
 
 <style type="text/css">
-  code{white-space: pre-wrap;}
-  span.smallcaps{font-variant: small-caps;}
-  span.underline{text-decoration: underline;}
-  div.column{display: inline-block; vertical-align: top; width: 50%;}
-  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-  ul.task-list{list-style: none;}
-    </style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+span.underline{text-decoration: underline;}
+div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+</style>
+
 
 
 <style type="text/css">
-  code {
-    white-space: pre;
-  }
-  .sourceCode {
-    overflow: visible;
-  }
+code {
+white-space: pre;
+}
+.sourceCode {
+overflow: visible;
+}
 </style>
 <style type="text/css" data-origin="pandoc">
 pre > code.sourceCode { white-space: pre; position: relative; }
@@ -64,55 +65,54 @@ pre > code.sourceCode { white-space: pre-wrap; }
 pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
-  { counter-reset: source-line 0; }
+{ counter-reset: source-line 0; }
 pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
+{ position: relative; left: -4em; counter-increment: source-line; }
 pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-    color: #aaaaaa;
-  }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+{ content: counter(source-line);
+position: relative; left: -1em; text-align: right; vertical-align: baseline;
+border: none; display: inline-block;
+-webkit-touch-callout: none; -webkit-user-select: none;
+-khtml-user-select: none; -moz-user-select: none;
+-ms-user-select: none; user-select: none;
+padding: 0 4px; width: 4em;
+color: #aaaaaa;
+}
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa; padding-left: 4px; }
 div.sourceCode
-  {   }
+{ }
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-
+code span.al { color: #ff0000; font-weight: bold; } 
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } 
+code span.at { color: #7d9029; } 
+code span.bn { color: #40a070; } 
+code span.bu { color: #008000; } 
+code span.cf { color: #007020; font-weight: bold; } 
+code span.ch { color: #4070a0; } 
+code span.cn { color: #880000; } 
+code span.co { color: #60a0b0; font-style: italic; } 
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } 
+code span.do { color: #ba2121; font-style: italic; } 
+code span.dt { color: #902000; } 
+code span.dv { color: #40a070; } 
+code span.er { color: #ff0000; font-weight: bold; } 
+code span.ex { } 
+code span.fl { color: #40a070; } 
+code span.fu { color: #06287e; } 
+code span.im { color: #008000; font-weight: bold; } 
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } 
+code span.kw { color: #007020; font-weight: bold; } 
+code span.op { color: #666666; } 
+code span.ot { color: #007020; } 
+code span.pp { color: #bc7a00; } 
+code span.sc { color: #4070a0; } 
+code span.ss { color: #bb6688; } 
+code span.st { color: #4070a0; } 
+code span.va { color: #19177c; } 
+code span.vs { color: #4070a0; } 
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } 
 </style>
 <script>
 // apply pandoc div.sourceCode style to pre.sourceCode instead
@@ -121,13 +121,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   for (var i = 0; i < sheets.length; i++) {
     if (sheets[i].ownerNode.dataset["origin"] !== "pandoc") continue;
     try { var rules = sheets[i].cssRules; } catch (e) { continue; }
-    for (var j = 0; j < rules.length; j++) {
+    var j = 0;
+    while (j < rules.length) {
       var rule = rules[j];
       // check if there is a div.sourceCode rule
-      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") continue;
+      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") {
+        j++;
+        continue;
+      }
       var style = rule.style.cssText;
       // check if color or background-color is set
-      if (rule.style.color === '' && rule.style.backgroundColor === '') continue;
+      if (rule.style.color === '' && rule.style.backgroundColor === '') {
+        j++;
+        continue;
+      }
       // replace div.sourceCode by a pre.sourceCode rule
       sheets[i].deleteRule(j);
       sheets[i].insertRule('pre.sourceCode{' + style + '}', j);
@@ -333,12 +340,49 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 
 <h1 class="title toc-ignore">Getting started with the BT package</h1>
 <h4 class="author">Gireg Willame</h4>
-<h4 class="date">2023-01-28</h4>
+<h4 class="date">2023-08-19</h4>
 
 
+<div id="TOC">
+<ul>
+<li><a href="#introduction" id="toc-introduction">Introduction</a></li>
+<li><a href="#important-modeling-remark" id="toc-important-modeling-remark">Important modeling remark</a></li>
+<li><a href="#use-case" id="toc-use-case">Use-case</a>
+<ul>
+<li><a href="#import-database" id="toc-import-database">Import
+database</a></li>
+<li><a href="#create-working-datasets" id="toc-create-working-datasets">Create working datasets</a></li>
+<li><a href="#boosting-tree-bt" id="toc-boosting-tree-bt">Boosting Tree
+(BT)</a>
+<ul>
+<li><a href="#bt-fit-and-outputs" id="toc-bt-fit-and-outputs"><code>BT</code> fit and outputs</a></li>
+<li><a href="#optimal-iterations-number" id="toc-optimal-iterations-number">Optimal iterations number</a></li>
+<li><a href="#continue-training" id="toc-continue-training">Continue
+training</a></li>
+<li><a href="#cross-validation" id="toc-cross-validation">Cross-validation</a></li>
+<li><a href="#hyperparameter-optimization" id="toc-hyperparameter-optimization">Hyperparameter
+Optimization</a></li>
+<li><a href="#relative-influence" id="toc-relative-influence">Relative
+influence</a></li>
+<li><a href="#prediction" id="toc-prediction">Prediction</a></li>
+</ul></li>
+<li><a href="#adaptive-boosting-tree-abt" id="toc-adaptive-boosting-tree-abt">Adaptive Boosting Tree (ABT)</a>
+<ul>
+<li><a href="#hyperparameter-optimization-1" id="toc-hyperparameter-optimization-1">Hyperparameter
+Optimization</a></li>
+</ul></li>
+<li><a href="#miscellaneous" id="toc-miscellaneous">Miscellaneous</a></li>
+<li><a href="#models-comparison" id="toc-models-comparison">Models
+comparison</a>
+<ul>
+<li><a href="#deviance" id="toc-deviance">Deviance</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
 
-<div id="bt" class="section level1">
-<h1>BT</h1>
+<div id="introduction" class="section level1">
+<h1>Introduction</h1>
 <p>The <code>BT</code> package implements (Adaptive) Boosting Tree for
 <em>Poisson</em> distributed response variables, using log-link
 function. When presented with data, the <code>BT</code> package offers
@@ -351,7 +395,7 @@ details, we refer to the following references:</p>
 <li>M. Denuit, D. Hainaut and J. Trufin (2019). <strong>Effective
 Statistical Learning Methods for Actuaries |: GLMs and
 Extensions</strong>, <em>Springer Actuarial</em>.</li>
-<li>M. Denuit, D. Hainaut and J. Trufin (2019). <strong>Effective
+<li>M. Denuit, D. Hainaut and J. Trufin (2020). <strong>Effective
 Statistical Learning Methods for Actuaries ||: Tree-Based Methods and
 Extensions</strong>, <em>Springer Actuarial</em>.</li>
 <li>M. Denuit, D. Hainaut and J. Trufin (2019). <strong>Effective
@@ -359,8 +403,8 @@ Statistical Learning Methods for Actuaries |||: Neural Networks and
 Extensions</strong>, <em>Springer Actuarial</em>.</li>
 <li>M. Denuit, D. Hainaut and J. Trufin (2022). <strong>Response versus
 gradient boosting trees, GLMs and neural networks under Tweedie loss and
-log-link</strong>, Accepted for publication in <em>Scandinavian
-Actuarial Journal</em>.</li>
+log-link</strong>, <em>Scandinavian Actuarial Journal 2022,
+841-866</em>.</li>
 <li>M. Denuit, J. Huyghe and J. Trufin (2022). <strong>Boosting
 cost-complexity pruned trees on Tweedie responses: The ABT machine for
 insurance ratemaking</strong>. Paper submitted for publication.</li>
@@ -368,186 +412,230 @@ insurance ratemaking</strong>. Paper submitted for publication.</li>
 the responses with Tweedie loss functions</strong>. Paper submitted for
 publication.</li>
 </ul>
-<p>To get started with the package a user must:</p>
+<p>We’ll now show how to use the <code>BT</code> package on classical
+machine learning problem. In particular, insurance related model will be
+investigated in the following.</p>
+<p>Let’s start by importing the <code>BT</code> package.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="fu">library</span>(BT)</span></code></pre></div>
+</div>
+<div id="important-modeling-remark" class="section level1">
+<h1>Important modeling remark</h1>
+<p>As previously mentioned, the <code>BT</code> package is only
+available for <em>Poisson</em> distributed response variable <span class="math inline">\(Y\)</span>, in a log-link context.</p>
+<p>Using <em>offset</em> in the Poisson framework is often required. In
+the insurance modelling for example, the offset allows to take into
+account the time exposure-to-risk. It therefore helps to align the asked
+premium with respect to the contract duration.</p>
+<p>Regarding the <code>BT</code> package, the weighted approach was
+favored in place of the offset one. In fact, the two are equivalent
+given some adjustments. More precisely, the modeler is allowed to work
+either with</p>
 <ul>
-<li>have a dataset in a <code>data.frame</code>.</li>
-<li>set the appropriate parameters for the <code>BT</code> model.</li>
+<li>the observed claim count <span class="math inline">\(Y\)</span> with
+offset <span class="math inline">\(ln(d)\)</span> under log link, where
+<span class="math inline">\(d\)</span> is the exposure to risk,
+generally measured in time units, sometimes in distance traveled or
+other meaningful unit depending on the application, or</li>
+<li>the observed claim frequency (also called claim rate) <span class="math inline">\(\tilde{Y} = Y/d\)</span> provided the weight <span class="math inline">\(\nu = d\)</span> enters the analysis. In fact, the
+distribution of the claim frequency <span class="math inline">\(\tilde{Y}\)</span> still belongs to the Tweedie
+family and is called the Poisson rate distribution.</li>
 </ul>
-<p>Once these steps have been completed, a user can fit their
-<code>BT</code> model by a call to <code>BT</code> and subsequently:
-evaluate its performance, make predictions, fit additional trees and
-plot the relative influence of the various predictor variables</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(BT)</span></code></pre></div>
-<div id="define-a-database" class="section level2">
-<h2>Define a database</h2>
-<p>To demonstrate the <code>BT</code> usage, we’ll use a simulated
-database where the response variable is Poisson distributed. The built
-database contains <span class="math inline">\(n = 50000\)</span> records
-as well as the following simulated variables (with their interpretation
-in an insurance MTPL context):</p>
+<p>We refer to the first book aforementioned (p. 123) for a detailed
+proof.</p>
+<p>We now focus on the impact of such implementation choice on the
+Boosting Tree Algorithm. First of all, let us remind the algorithm in
+our Poisson log-link framework. Given a training set</p>
+<p><span class="math display">\[\mathcal{D} = \Bigl\{ (d_i, y_i,
+\mathbf{x}_i), i \in \mathcal{I} \Bigl\},\]</span></p>
+<p>where</p>
 <ul>
-<li><code>Y</code>, the Poisson distributed response variable (e.g. the
-number of claims).</li>
-<li><code>Gender</code>, <code>Age</code> and <code>Sport</code> which
-are directly linked to the response variable (e.g. resp. the
-policyholder’s gender and age, the vehicle type).</li>
-<li><code>Split</code> which is not linked to the response
+<li><span class="math inline">\(d_i\)</span> the exposure-to-risk
+(e.g. offset term).</li>
+<li><span class="math inline">\(y_i\)</span> is the observed count
 variable.</li>
-<li><code>ExpoR</code> which corresponds to the time-exposure (e.g. the
-well-known exposure-to-risk).</li>
-<li>Based on these variables, we define the rate as
-<code>Y_normalize = Y/ExpoR</code>.</li>
+<li><span class="math inline">\(\mathbf{x}_i\)</span> the corresponding
+features vector.</li>
+<li><span class="math inline">\(\mathcal{I}\)</span> corresponds to the
+set of all observations,</li>
 </ul>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">4</span>)</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="dv">50000</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>Gender <span class="ot">&lt;-</span> <span class="fu">factor</span>(<span class="fu">sample</span>(<span class="fu">c</span>(<span class="st">&quot;male&quot;</span>,<span class="st">&quot;female&quot;</span>),n,<span class="at">replace=</span><span class="cn">TRUE</span>))</span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>Age <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="fu">c</span>(<span class="dv">18</span><span class="sc">:</span><span class="dv">65</span>),n,<span class="at">replace=</span><span class="cn">TRUE</span>)</span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>Split <span class="ot">&lt;-</span> <span class="fu">factor</span>(<span class="fu">sample</span>(<span class="fu">c</span>(<span class="st">&quot;yes&quot;</span>,<span class="st">&quot;no&quot;</span>),n,<span class="at">replace=</span><span class="cn">TRUE</span>))</span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>Sport <span class="ot">&lt;-</span> <span class="fu">factor</span>(<span class="fu">sample</span>(<span class="fu">c</span>(<span class="st">&quot;yes&quot;</span>,<span class="st">&quot;no&quot;</span>),n,<span class="at">replace=</span><span class="cn">TRUE</span>))</span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>lambda <span class="ot">&lt;-</span> <span class="fl">0.1</span><span class="sc">*</span><span class="fu">ifelse</span>(Gender<span class="sc">==</span><span class="st">&quot;male&quot;</span>,<span class="fl">1.1</span>,<span class="dv">1</span>)</span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>lambda <span class="ot">&lt;-</span> lambda<span class="sc">*</span>(<span class="dv">1</span><span class="sc">+</span><span class="dv">1</span><span class="sc">/</span>(Age<span class="dv">-17</span>)<span class="sc">^</span><span class="fl">0.5</span>)</span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>lambda <span class="ot">&lt;-</span> lambda<span class="sc">*</span><span class="fu">ifelse</span>(Sport<span class="sc">==</span><span class="st">&quot;yes&quot;</span>,<span class="fl">1.15</span>,<span class="dv">1</span>)</span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>ExpoR <span class="ot">&lt;-</span> <span class="fu">runif</span>(n)</span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>Y <span class="ot">&lt;-</span> <span class="fu">rpois</span>(n, ExpoR<span class="sc">*</span>lambda)</span>
-<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>Y_normalized <span class="ot">&lt;-</span> Y<span class="sc">/</span>ExpoR</span>
-<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>dataset <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(Y,Gender,Age,Split,Sport,ExpoR, Y_normalized)</span></code></pre></div>
-</div>
-<div id="define-the-bt-parameters" class="section level2">
-<h2>Define the <code>BT</code> parameters</h2>
-<p>Once the database has been imported, the user needs to define the
-different parameters that will be passed to the algorithm. In this case,
-the parameters should not be stored upfront in a specific object and a
-simple call using the argument can be made. We list below all the
-available parameters:</p>
+<p>the following steps are performed:</p>
+<ol style="list-style-type: decimal">
+<li><p>Initialize the score to <span class="math display">\[
+\widehat{\text{score}}_0(x) = \mathop{\mathrm{argmin}}_{\beta} \sum_{i
+\in \mathcal{I}} L\Bigl(y_i, d_i \exp(\beta) \Bigr).
+\]</span></p></li>
+<li><p><strong>For</strong> <span class="math inline">\(m = 1\)</span>
+to <span class="math inline">\(M\)</span> <strong>do</strong></p>
+<p>2.1. Fit a weak learner, regression tree in our context, <span class="math inline">\(T(\mathbf{x}; \widehat{\mathbf{a}_m})\)</span>
+with <span class="math display">\[
+  \widehat{\mathbf{a}_m} = \mathop{\mathrm{argmin}}_{\mathbf{a}_m}
+\sum_{i \in \mathcal{I}} L\biggl(y_i, d_i
+\exp\Bigl(\widehat{\text{score}}_{m-1}(\mathbf{x}_i) + T(\mathbf{x}_i;
+\mathbf{a}_m)\Bigr)\biggr),
+  \]</span> where</p>
 <ul>
-<li><code>formula</code>: a symbolic description of the model to be fit.
-We emphasize that the offset are not supported with out approach.</li>
-<li><code>data</code>: the database on which the computations will be
-performed.</li>
-<li><code>tweedie.power</code>: Experimental parameter : the Tweedie
-power referencing to the response variable distribution. Always set to 1
-referring to Poisson distribution.</li>
-<li><code>ABT</code>: bool value to define whether we fit a Boosting
-Tree (=<code>FALSE</code>) or an Adaptive Boosting Tree
-(=<code>TRUE</code>).</li>
-<li><code>n.iter</code>: the number of iterations to user in the
-fitting.</li>
-<li><code>train.fraction</code>: the percentage of the <code>data</code>
-that will be used as training set. The remaining part will be used as
-validation set.</li>
-<li><code>interaction.depth</code>: the maximum number of splits in a
-tree present in the expansion.</li>
-<li><code>shrinkage</code>: acts as regularization for additional
-iterations - the smaller the shrinkage generally the better the
-performance of the fit. However, smaller shrinkage implies that the
-number of trees may need to be increased to achieve a certain
-performance.</li>
-<li><code>bag.fraction</code>: the fraction of the training observations
-randomly sub-sampled to fit a tree in each iteration. This has the
-effect of reducing the variance of the boosted model.</li>
-<li><code>colsample.bytree</code>: the number of variables randomly
-sampled that will be used to build the next tree in the expansion.</li>
-<li><code>keep.data</code>: allows the user the save the different
-databases used during the algorithm in a <code>BTData</code>
-object.</li>
-<li><code>is.verbose</code>: whether the algorithm evolution has to be
-printed out.</li>
-<li><code>cv.folds</code>: the number of cross-validation folds to
-create. If set to 1 (by default), no cross-validation is performed.</li>
-<li><code>folds.id</code>: used in case of cross-validation. If defined,
-allows the user to specify in what fold each observation belongs. If
-<code>cv.folds</code> is greater than 1 and <code>folds.id</code> is
-well defined, the latter will take over.</li>
-<li><code>n.cores</code>: in case of cross-validation, the number of
-cores used to perform the parallelization. Please note that in the
-cross-validation context, a call to the <code>parLapply</code> function
-is made (whatever the number of cores). This parameter is originally set
-to <code>cv.folds</code>.</li>
-<li><code>tree.control</code>: the proposed algorithm is based on the
-<code>rpart</code> package. This parameter will be used to originally
-build each tree in the expansion. We emphasize that if the
-<code>interaction.depth</code> is set to <code>NULL</code>, each tree in
-the expansion will be built thanks to this parameters with no further
-treatment. We recommend this option for advanced user only.</li>
-<li><code>weights</code>: a vector representing the weight given to each
-observation. By default, each observation as the same weight (=1).</li>
-<li><code>seed</code>: some of the parameters bring randomness during
-the algorithm. This parameter allows the user to replicate the
-results.</li>
+<li><span class="math inline">\(\mathbf{a}_m\)</span> gathers the
+splitting variables and their split values as well as the corresponding
+observed averages in the terminal nodes, i.e. describes the built
+tree.</li>
+<li><span class="math inline">\(L\)</span> is the loss function, defined
+as the Poisson deviance in our approach.</li>
 </ul>
-<p>We emphasize that performing a cross-validation will produce a first
-global model trained on the full training set as well as different cv
-related <code>BT</code> models. The former will generally further be
-used while the later will help to e.g. determine the performances.</p>
+<p>2.2. Update <span class="math inline">\(\widehat{\text{score}}_m(\mathbf{x}) =
+\widehat{\text{score}}_{m-1}(\mathbf{x}) + T(\mathbf{x};
+\widehat{\mathbf{a}_m})\)</span>.</p></li>
+<li><p>Output <span class="math inline">\(\widehat{\text{score}}(\mathbf{x}) =
+\widehat{\text{score}}_M(\mathbf{x}).\)</span></p></li>
+</ol>
+<p>Suppose that we’re at the <span class="math inline">\(m\)</span>th
+boosting iteration, the algorithm then fits a weak learner <span class="math inline">\(T(\mathbf{x}; \widehat{\mathbf{a}_m})\)</span>.
+Using the above trick, for a given observation <span class="math inline">\(i\)</span> one can rewrite the optimization step
+2.1 as</p>
+<p><span class="math display">\[
+L\biggl(y_i, d_i \exp\Bigl(\widehat{\text{score}}_{m-1}(\mathbf{x}_i) +
+T(\mathbf{x}_i; \mathbf{a}_m)\Bigr)\biggr) =
+\nu_i L\biggl(\tilde{y}_i,
+\exp\Bigl(\widehat{\text{score}}_{m-1}(\mathbf{x}_i) + T(\mathbf{x}_i;
+\mathbf{a}_m)\Bigr)\biggr),
+\]</span> where <span class="math inline">\(\nu_i = d_i\)</span> and
+<span class="math inline">\(\tilde{y_i} = \frac{y_i}{d_i}\)</span>.
+Using the definition of the Poisson deviance <span class="math inline">\(L\)</span>, one can easily rewrite the second term
+as:</p>
+<p><span class="math display">\[
+\nu_i L\biggl(\tilde{y}_i,
+\exp\Bigl(\widehat{\text{score}}_{m-1}(\mathbf{x}_i) + T(\mathbf{x}_i;
+\mathbf{a}_m)\Bigr)\biggr) = \nu_{mi} L(\tilde{r}_{mi},
+\exp(T(\mathbf{x}_i; \mathbf{a}_m))),
+\]</span> with <span class="math display">\[
+\nu_{mi} = \nu_i \exp\Bigl(\widehat{\text{score}}_{m-1}(\mathbf{x}_i)
+\Bigr)
+\]</span> and <span class="math display">\[
+\tilde{r}_{mi} = \frac{\tilde{y}_i}{\exp \Bigl(
+\widehat{\text{score}}_{m-1}(\mathbf{x}_i) \Bigr)}.
+\]</span></p>
+<p>The <span class="math inline">\(m\)</span>th iteration of the
+boosting procedure therefore reduces to build a single weak learner, on
+the working training set</p>
+<p><span class="math display">\[
+\mathcal{D}^{(m)} = \Bigl\{ (\nu_{mi}, \tilde{r}_{mi}, \mathbf{x}_i), i
+\in \mathcal{I} \Bigl\},
+\]</span></p>
+<p>using the Poisson deviance loss and the log-link function. Going
+through iterations, the weights are each time updated together with the
+responses that are assumed to follow Poisson rate distributions.</p>
 </div>
-<div id="application-to-the-created-database" class="section level2">
-<h2>Application to the created database</h2>
-<p>Let us now build the first model. Let us note/suppose that:</p>
+<div id="use-case" class="section level1">
+<h1>Use-case</h1>
+<p>The goal of this section is to show how the user can work with
+<code>BT</code> functions and define an optimal model, according to the
+selected criteria. We also underline that this use-case is a toy example
+with some limitations such as running-time constraints. However, the
+same concepts can easily be extended to real-world problems.</p>
+<div id="import-database" class="section level2">
+<h2>Import database</h2>
+<p>Let us import the simulated database
+<code>BT::BT_Simulated_Data</code>. We refer to the specific database
+documentation for more details.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a>db <span class="ot">&lt;-</span> BT<span class="sc">::</span>BT_Simulated_Data</span></code></pre></div>
+<p>One can then have a look at this database.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="fu">str</span>(db)</span></code></pre></div>
+<pre><code>## &#39;data.frame&#39;:    50000 obs. of  7 variables:
+##  $ Y           : int  0 0 0 0 0 0 0 0 0 0 ...
+##  $ Gender      : Factor w/ 2 levels &quot;female&quot;,&quot;male&quot;: 1 2 2 2 2 1 2 1 2 1 ...
+##  $ Age         : int  28 62 37 56 36 24 52 33 47 51 ...
+##  $ Split       : Factor w/ 2 levels &quot;no&quot;,&quot;yes&quot;: 1 2 1 1 1 2 2 1 1 2 ...
+##  $ Sport       : Factor w/ 2 levels &quot;no&quot;,&quot;yes&quot;: 2 1 1 2 2 2 1 1 1 1 ...
+##  $ ExpoR       : num  0.102 0.712 0.373 0.621 0.106 ...
+##  $ Y_normalized: num  0 0 0 0 0 0 0 0 0 0 ...</code></pre>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a><span class="fu">head</span>(db)</span></code></pre></div>
+<pre><code>##   Y Gender Age Split Sport      ExpoR Y_normalized
+## 1 0 female  28    no   yes 0.10197573            0
+## 2 0   male  62   yes    no 0.71179081            0
+## 3 0   male  37    no    no 0.37298030            0
+## 4 0   male  56    no   yes 0.62134765            0
+## 5 0   male  36    no   yes 0.10604182            0
+## 6 0 female  24   yes   yes 0.05905927            0</code></pre>
+<p>One can also perform a quick summary</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a><span class="fu">summary</span>(db)</span></code></pre></div>
+<pre><code>##        Y              Gender           Age        Split       Sport      
+##  Min.   :0.00000   female:24898   Min.   :18.00   no :24919   no :24995  
+##  1st Qu.:0.00000   male  :25102   1st Qu.:29.00   yes:25081   yes:25005  
+##  Median :0.00000                  Median :41.00                          
+##  Mean   :0.07296                  Mean   :41.47                          
+##  3rd Qu.:0.00000                  3rd Qu.:53.00                          
+##  Max.   :4.00000                  Max.   :65.00                          
+##      ExpoR            Y_normalized    
+##  Min.   :0.0000163   Min.   : 0.0000  
+##  1st Qu.:0.2494463   1st Qu.: 0.0000  
+##  Median :0.4999763   Median : 0.0000  
+##  Mean   :0.5002706   Mean   : 0.1443  
+##  3rd Qu.:0.7519584   3rd Qu.: 0.0000  
+##  Max.   :0.9999931   Max.   :27.0002</code></pre>
+<p>We leave potential descriptive analysis to the interested reader but
+we note that the global average claim frequency is</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" tabindex="-1"></a><span class="fu">sum</span>(db<span class="sc">$</span>Y)<span class="sc">/</span><span class="fu">sum</span>(db<span class="sc">$</span>ExpoR)</span></code></pre></div>
+<pre><code>## [1] 0.1458411</code></pre>
+</div>
+<div id="create-working-datasets" class="section level2">
+<h2>Create working datasets</h2>
+<p>As we’re dealing with machine learning models, a classical approach
+consists in splitting the dataset into two parts, namely:</p>
 <ul>
-<li>As already mentioned, the simulated response variable <code>Y</code>
-follows a Poisson distribution. This first step can normally be achieved
-thanks to a short database analysis.</li>
-<li>The user wants to use all available explanatory variables to explain
-the response variable <code>Y</code>. In usual MTPL pricing, the
-<code>ExpoR</code> variable allows to consider the time-exposure to risk
-(e.g. the Policyholder contract’s duration). The latter variable is thus
-generally set in offset. In a Tweedie framework with log-link function,
-we emphasize that working with offset is equivalent to build a model on
-the rate response variable and adjusted weights. More precisely, the
-variable <code>Y_normalized</code> will be used as response variables
-with weights given by <code>ExpoR</code> (instead of original values,
-i.e. 1). This choice was made during modelling by the author.</li>
-<li>We’ll work in the context of Boosting Tree and perform 300
-iterations (=<code>n.iter</code>).</li>
-<li>The <code>interaction.depth</code> and <code>shrinkage</code>
-parameters will respectively be set to 4 and 0.01.</li>
-<li>The <code>train.fraction</code> will be set to 0.8, meaning that the
-first <code>0.8*nrow(data)</code> will be considered as training set and
-the remaining <code>data</code> records as validation set. Moreover,
-random effects such as bagging and columns sample for each tree will be
-defined. The <code>bag.fraction</code> and <code>colsample.bytree</code>
-parameters will respectively be set to 0.5 and 3.</li>
-<li>3-cv will be performed for this example.</li>
+<li>A <strong>training set</strong> which will be heavily used to train
+the different models and will serve for model selection.</li>
+<li>A <strong>testing set</strong> which will be hold off and used at
+the end to assess generalization performances.</li>
 </ul>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>BT_algo <span class="ot">&lt;-</span> <span class="fu">BT</span>(<span class="at">formula =</span> <span class="fu">as.formula</span>(<span class="st">&quot;Y_normalized ~ Age + Sport + Split + Gender&quot;</span>),</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>              <span class="at">data =</span> dataset,</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>              <span class="at">ABT =</span> F,</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>              <span class="at">n.iter =</span> <span class="dv">300</span>,</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>              <span class="at">train.fraction =</span> <span class="fl">0.8</span>,</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>              <span class="at">interaction.depth =</span> <span class="dv">4</span>,</span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>              <span class="at">shrinkage =</span> <span class="fl">0.01</span>,</span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>              <span class="at">bag.fraction =</span> <span class="fl">0.5</span>,</span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>              <span class="at">colsample.bytree =</span> <span class="dv">3</span>,</span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>              <span class="at">keep.data =</span> T,</span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>              <span class="at">is.verbose =</span> F,</span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>              <span class="at">cv.folds =</span> <span class="dv">3</span>,</span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>              <span class="at">folds.id =</span> <span class="cn">NULL</span>,</span>
-<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>              <span class="at">n.cores =</span> <span class="dv">1</span>,</span>
-<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>              <span class="at">weights =</span> ExpoR,</span>
-<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>              <span class="at">seed =</span> <span class="dv">44</span>)</span></code></pre></div>
-<p>Now that the first fit is made, we’ll focus on the different
-results/functions that are available within the package.</p>
-<div id="bt-outputs" class="section level3">
-<h3><code>BT</code> outputs</h3>
-<p>Multiple results are stored in the <code>BT_algo</code> run (namely,
-a <code>BTFit</code> object)</p>
-<p>First of all, almost all the parameters that have been used during
-the call are stored in the result object:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># &#39;Fitting parameters</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>BT_algo<span class="sc">$</span>call</span></code></pre></div>
-<pre><code>## BT(formula = as.formula(&quot;Y_normalized ~ Age + Sport + Split + Gender&quot;), 
-##     data = dataset, ABT = F, n.iter = 300, train.fraction = 0.8, 
-##     interaction.depth = 4, shrinkage = 0.01, bag.fraction = 0.5, 
-##     colsample.bytree = 3, keep.data = T, is.verbose = F, cv.folds = 3, 
-##     folds.id = NULL, n.cores = 1, weights = ExpoR, seed = 44)</code></pre>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>BT_algo<span class="sc">$</span>distribution</span></code></pre></div>
+<p>In our example, 80% of the total dataset will be placed in the
+training set and the remaining part in the testing set. One can note
+that the claims frequency is approximately similar for all the
+databases.</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">404</span>)</span>
+<span id="cb11-2"><a href="#cb11-2" tabindex="-1"></a>trainObs <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="fu">seq</span>(<span class="dv">1</span>, <span class="fu">nrow</span>(db)), <span class="fl">0.8</span> <span class="sc">*</span> <span class="fu">nrow</span>(db))</span>
+<span id="cb11-3"><a href="#cb11-3" tabindex="-1"></a>trainSet <span class="ot">&lt;-</span> db[trainObs, ]</span>
+<span id="cb11-4"><a href="#cb11-4" tabindex="-1"></a>testSet <span class="ot">&lt;-</span> db[<span class="fu">setdiff</span>(<span class="fu">seq</span>(<span class="dv">1</span>, <span class="fu">nrow</span>(db)), trainObs), ]</span>
+<span id="cb11-5"><a href="#cb11-5" tabindex="-1"></a></span>
+<span id="cb11-6"><a href="#cb11-6" tabindex="-1"></a><span class="fu">sum</span>(trainSet<span class="sc">$</span>Y)<span class="sc">/</span><span class="fu">sum</span>(trainSet<span class="sc">$</span>ExpoR)</span></code></pre></div>
+<pre><code>## [1] 0.1457085</code></pre>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" tabindex="-1"></a><span class="fu">sum</span>(testSet<span class="sc">$</span>Y)<span class="sc">/</span><span class="fu">sum</span>(testSet<span class="sc">$</span>ExpoR)</span></code></pre></div>
+<pre><code>## [1] 0.1463707</code></pre>
+</div>
+<div id="boosting-tree-bt" class="section level2">
+<h2>Boosting Tree (BT)</h2>
+<p>The basic idea behind this algorithm consists in building weak
+leaners to explain the remaining error, using all the past iterations.
+It differs from the Gradient Boosting Methods as we’re here boosting the
+ratios (as previously explained) rather than the pseudo-residuals, using
+the defined underlying distribution rather than a gaussian approach.</p>
+<p>In particular, let us remind that the package does not support
+offset. However, a problem reformulation can be used as explained
+before.</p>
+<p>We want to make profit of all explanatory variables. We then define
+the following model formula that will be heavily used.</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" tabindex="-1"></a>formFreq <span class="ot">&lt;-</span> Y_normalized <span class="sc">~</span> Gender <span class="sc">+</span> Age <span class="sc">+</span> Split <span class="sc">+</span> Sport</span></code></pre></div>
+<div id="bt-fit-and-outputs" class="section level3">
+<h3><code>BT</code> fit and outputs</h3>
+<p>We propose to begin this section by looking on a simple example
+resulting from a first run. We can then discuss the different available
+package’s features.</p>
+<p>We refer to the package documentation <code>?BT::BT</code> for more
+details about the arguments of this function.</p>
+<p>A first <code>BT</code> can be fitted without cross-validation</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" tabindex="-1"></a>bt0 <span class="ot">&lt;-</span> <span class="fu">BT</span>(<span class="at">formula =</span> formFreq, <span class="at">data =</span> trainSet, <span class="at">tweedie.power =</span> <span class="dv">1</span>, <span class="at">ABT =</span> <span class="cn">FALSE</span>, <span class="at">n.iter =</span> <span class="dv">50</span>,</span>
+<span id="cb16-2"><a href="#cb16-2" tabindex="-1"></a>    <span class="at">train.fraction =</span> <span class="fl">0.8</span>, <span class="at">interaction.depth =</span> <span class="dv">3</span>, <span class="at">shrinkage =</span> <span class="fl">0.01</span>, <span class="at">bag.fraction =</span> <span class="fl">0.5</span>,</span>
+<span id="cb16-3"><a href="#cb16-3" tabindex="-1"></a>    <span class="at">colsample.bytree =</span> <span class="cn">NULL</span>, <span class="at">keep.data =</span> <span class="cn">TRUE</span>, <span class="at">is.verbose =</span> <span class="cn">FALSE</span>, <span class="at">cv.folds =</span> <span class="dv">1</span>,</span>
+<span id="cb16-4"><a href="#cb16-4" tabindex="-1"></a>    <span class="at">folds.id =</span> <span class="cn">NULL</span>, <span class="at">n.cores =</span> <span class="dv">1</span>, <span class="at">weights =</span> ExpoR, <span class="at">seed =</span> <span class="dv">4</span>)</span></code></pre></div>
+<p>One can first have a look at the return object. Almost all the
+parameters that have been used during the call are stored.</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" tabindex="-1"></a>bt0<span class="sc">$</span>call</span></code></pre></div>
+<pre><code>## BT(formula = formFreq, data = trainSet, tweedie.power = 1, ABT = FALSE, 
+##     n.iter = 50, train.fraction = 0.8, interaction.depth = 3, 
+##     shrinkage = 0.01, bag.fraction = 0.5, colsample.bytree = NULL, 
+##     keep.data = TRUE, is.verbose = FALSE, cv.folds = 1, folds.id = NULL, 
+##     n.cores = 1, weights = ExpoR, seed = 4)</code></pre>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" tabindex="-1"></a>bt0<span class="sc">$</span>distribution</span></code></pre></div>
 <pre><code>## [1] 1</code></pre>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>BT_algo<span class="sc">$</span>BTParams</span></code></pre></div>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" tabindex="-1"></a>bt0<span class="sc">$</span>BTParams</span></code></pre></div>
 <pre><code>## $ABT
 ## [1] FALSE
 ## 
@@ -558,16 +646,16 @@ the call are stored in the result object:</p>
 ## [1] 0.01
 ## 
 ## $interaction.depth
-## [1] 4
+## [1] 3
 ## 
 ## $bag.fraction
 ## [1] 0.5
 ## 
 ## $n.iter
-## [1] 300
+## [1] 50
 ## 
 ## $colsample.bytree
-## [1] 3
+## NULL
 ## 
 ## $tree.control
 ## $tree.control$minsplit
@@ -592,7 +680,7 @@ the call are stored in the result object:</p>
 ## [1] 0
 ## 
 ## $tree.control$maxdepth
-## [1] 4
+## [1] 3
 ## 
 ## $tree.control$xval
 ## [1] 0
@@ -600,126 +688,112 @@ the call are stored in the result object:</p>
 ## 
 ## attr(,&quot;class&quot;)
 ## [1] &quot;BTParams&quot;</code></pre>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>BT_algo<span class="sc">$</span>keep.data</span></code></pre></div>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" tabindex="-1"></a>bt0<span class="sc">$</span>keep.data</span></code></pre></div>
 <pre><code>## [1] TRUE</code></pre>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>BT_algo<span class="sc">$</span>is.verbose</span></code></pre></div>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" tabindex="-1"></a>bt0<span class="sc">$</span>is.verbose</span></code></pre></div>
 <pre><code>## [1] FALSE</code></pre>
-<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>BT_algo<span class="sc">$</span>seed</span></code></pre></div>
-<pre><code>## [1] 44</code></pre>
-<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>BT_algo<span class="sc">$</span>cv.folds <span class="co"># #used folds</span></span></code></pre></div>
-<pre><code>## [1] 3</code></pre>
-<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(BT_algo<span class="sc">$</span>folds, <span class="dv">10</span>) <span class="co"># folds created.</span></span></code></pre></div>
-<pre><code>##  [1] 2 2 1 1 3 3 3 1 3 1</code></pre>
-<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Name of weights, response and explnatory variables used</span></span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>BT_algo<span class="sc">$</span>w</span></code></pre></div>
-<pre><code>## [1] &quot;w&quot;</code></pre>
-<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>BT_algo<span class="sc">$</span>response</span></code></pre></div>
-<pre><code>## [1] &quot;Y_normalized&quot;</code></pre>
-<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>BT_algo<span class="sc">$</span>var.name</span></code></pre></div>
-<pre><code>## [1] &quot;Age&quot;    &quot;Sport&quot;  &quot;Split&quot;  &quot;Gender&quot;</code></pre>
-<p>One can then continue by having a look at the initialization that is
-performed as well as the related errors:</p>
-<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Tweedie with intercept only.</span></span>
-<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>BT_algo<span class="sc">$</span>BTInit<span class="sc">$</span>initFit </span></code></pre></div>
-<pre><code>## [1] 0.1480054</code></pre>
-<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Init training error</span></span>
-<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>BT_algo<span class="sc">$</span>BTInit<span class="sc">$</span>training.error</span></code></pre></div>
-<pre><code>## [1] 0.3685759</code></pre>
-<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Init validation error</span></span>
-<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>BT_algo<span class="sc">$</span>BTInit<span class="sc">$</span>validation.error</span></code></pre></div>
-<pre><code>## [1] 0.3528488</code></pre>
-<p>If <code>keep.data = TRUE</code>, the created training and validation
-set are also returned:</p>
-<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(BT_algo<span class="sc">$</span>BTData<span class="sc">$</span>training.set)</span></code></pre></div>
-<pre><code>##   Y_normalized Age Sport Split Gender          w currTrainScore
-## 1            0  28   yes    no female 0.10197573      -1.878222
-## 2            0  62    no   yes   male 0.71179081      -2.021452
-## 3            0  37    no    no   male 0.37298030      -1.915680
-## 4            0  56   yes    no   male 0.62134765      -1.895872
-## 5            0  36   yes    no   male 0.10604182      -1.846164
-## 6            0  24   yes   yes female 0.05905927      -1.866964</code></pre>
-<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(BT_algo<span class="sc">$</span>BTData<span class="sc">$</span>validation.set, <span class="dv">5</span>)</span></code></pre></div>
-<pre><code>##       Y_normalized Age Sport Split Gender         w currValScore
-## 40001      0.00000  49   yes    no female 0.9998001    -1.876190
-## 40002      0.00000  39    no   yes   male 0.7711231    -1.991724
-## 40003      0.00000  29   yes   yes   male 0.1610786    -1.834477
-## 40004      0.00000  33    no   yes female 0.5680789    -2.038986
-## 40005      2.98261  40   yes    no female 0.3352768    -1.895784</code></pre>
-<p>One can also have a look at the fitted values (on the score scale) as
-well as the errors computed across the different iterations (on training
-set, validation set, the OOB improvement and the cross-validation
-error):</p>
-<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Obtained fitting results at the end - Full BT and CV. </span></span>
-<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(BT_algo<span class="sc">$</span>fitted.values)</span></code></pre></div>
-<pre><code>## [1] -1.878222 -2.021452 -1.915680 -1.895872 -1.846164 -1.866964</code></pre>
-<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(BT_algo<span class="sc">$</span>cv.fitted) <span class="co"># cv fitted.</span></span></code></pre></div>
-<pre><code>## [1] -1.892785 -1.934626 -1.995363 -1.854360 -1.845289 -1.889145</code></pre>
-<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Errors computed.</span></span>
-<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(BT_algo<span class="sc">$</span>BTErrors<span class="sc">$</span>training.error)</span></code></pre></div>
-<pre><code>## [1] 0.3637171 0.3691590 0.3623403 0.3644938 0.3650795 0.3699250</code></pre>
-<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(BT_algo<span class="sc">$</span>BTErrors<span class="sc">$</span>validation.error)</span></code></pre></div>
-<pre><code>## [1] 0.3528371 0.3528110 0.3528009 0.3527770 0.3527524 0.3527456</code></pre>
-<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(BT_algo<span class="sc">$</span>BTErrors<span class="sc">$</span>oob.improvement)</span></code></pre></div>
-<pre><code>## [1] 2.336664e-05 3.498181e-05 9.592938e-06 2.194806e-05 2.780747e-05
-## [6] 1.158397e-05</code></pre>
-<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(BT_algo<span class="sc">$</span>BTErrors<span class="sc">$</span>cv.error)</span></code></pre></div>
-<pre><code>## [1] 0.3685543 0.3685281 0.3685146 0.3684967 0.3684822 0.3684594</code></pre>
-<p>Finally, we note that all the trees fitted during the algorithm are
-stored in the <code>BTIndivFits</code> list:</p>
-<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a>BT_algo<span class="sc">$</span>BTIndivFits[[<span class="dv">1</span>]] <span class="co"># First tree in the expansion</span></span></code></pre></div>
-<pre><code>## n= 20000 
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" tabindex="-1"></a>bt0<span class="sc">$</span>seed</span></code></pre></div>
+<pre><code>## [1] 4</code></pre>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" tabindex="-1"></a><span class="co"># bt0$w / bt0$response / bt0$var.name</span></span></code></pre></div>
+<p>A built-in <code>print</code> function is also available. This method
+prints some of the already presented values.</p>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" tabindex="-1"></a><span class="fu">print</span>(bt0)</span></code></pre></div>
+<pre><code>## BT(formula = formFreq, data = trainSet, tweedie.power = 1, ABT = FALSE, 
+##     n.iter = 50, train.fraction = 0.8, interaction.depth = 3, 
+##     shrinkage = 0.01, bag.fraction = 0.5, colsample.bytree = NULL, 
+##     keep.data = TRUE, is.verbose = FALSE, cv.folds = 1, folds.id = NULL, 
+##     n.cores = 1, weights = ExpoR, seed = 4)
+## A boosting tree model with Tweedie parameter : 1  has been fitted.
+##  50 iterations were performed.</code></pre>
+<pre><code>## OOB generally underestimates the optimal number of iterations although predictive performance is reasonably competitive.
+##             Using cv_folds&gt;1 when calling BT usually results in improved predictive performance.</code></pre>
+<pre><code>## The best out-of-bag iteration was 50.
+## The best validation-set iteration was 50.
+## There were 4 predictors of which 4 had non-zero influence.</code></pre>
+<p>One can have a specific look at the initialization that has been
+performed via</p>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" tabindex="-1"></a><span class="fu">str</span>(bt0<span class="sc">$</span>BTInit)</span></code></pre></div>
+<pre><code>## List of 3
+##  $ initFit         : num 0.145
+##  $ training.error  : num 0.365
+##  $ validation.error: num 0.371
+##  - attr(*, &quot;class&quot;)= chr &quot;BTInit&quot;</code></pre>
+<p>If <code>keep.data=TRUE</code>, the different databases with the last
+evaluation are returned</p>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" tabindex="-1"></a><span class="fu">str</span>(bt0<span class="sc">$</span>BTData)</span></code></pre></div>
+<pre><code>## List of 2
+##  $ training.set  :&#39;data.frame&#39;:  32000 obs. of  7 variables:
+##   ..$ Y_normalized  : num [1:32000] 0 1.15 0 0 3.33 ...
+##   ..$ Gender        : Factor w/ 2 levels &quot;female&quot;,&quot;male&quot;: 1 1 1 2 1 1 1 2 2 1 ...
+##   ..$ Age           : int [1:32000] 53 22 22 21 59 64 49 31 61 28 ...
+##   ..$ Split         : Factor w/ 2 levels &quot;no&quot;,&quot;yes&quot;: 2 2 1 2 1 2 1 2 1 2 ...
+##   ..$ Sport         : Factor w/ 2 levels &quot;no&quot;,&quot;yes&quot;: 1 2 2 1 1 1 1 2 1 1 ...
+##   ..$ w             : num [1:32000] 0.977 0.869 0.479 0.374 0.3 ...
+##   ..$ currTrainScore: num [1:32000] -1.99 -1.86 -1.84 -1.84 -1.98 ...
+##  $ validation.set:&#39;data.frame&#39;:  8000 obs. of  7 variables:
+##   ..$ Y_normalized: num [1:8000] 0 0 0 0 0 0 0 0 0 0 ...
+##   ..$ Gender      : Factor w/ 2 levels &quot;female&quot;,&quot;male&quot;: 2 2 2 2 1 1 1 2 1 1 ...
+##   ..$ Age         : int [1:8000] 49 27 45 39 28 65 19 21 43 62 ...
+##   ..$ Split       : Factor w/ 2 levels &quot;no&quot;,&quot;yes&quot;: 1 2 2 2 1 1 1 2 1 2 ...
+##   ..$ Sport       : Factor w/ 2 levels &quot;no&quot;,&quot;yes&quot;: 1 1 2 1 2 2 2 1 1 2 ...
+##   ..$ w           : num [1:8000] 0.645 0.175 0.625 0.402 0.572 ...
+##   ..$ currValScore: num [1:8000] -1.98 -1.94 -1.94 -1.99 -1.93 ...
+##  - attr(*, &quot;class&quot;)= chr &quot;BTData&quot;</code></pre>
+<p>The fitted values (on the score scale) as well as the computed errors
+across the iterations are available</p>
+<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" tabindex="-1"></a><span class="fu">head</span>(bt0<span class="sc">$</span>fitted.values, <span class="dv">5</span>)</span></code></pre></div>
+<pre><code>## [1] -1.991089 -1.856422 -1.838851 -1.843473 -1.980151</code></pre>
+<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" tabindex="-1"></a><span class="fu">str</span>(bt0<span class="sc">$</span>BTErrors)</span></code></pre></div>
+<pre><code>## List of 3
+##  $ training.error  : num [1:50] 0.369 0.365 0.37 0.368 0.37 ...
+##  $ validation.error: num [1:50] 0.371 0.371 0.371 0.371 0.371 ...
+##  $ oob.improvement : num [1:50] 2.11e-05 1.09e-05 1.53e-05 5.85e-06 1.44e-05 ...
+##  - attr(*, &quot;class&quot;)= chr &quot;BTErrors&quot;</code></pre>
+<p>Finally, each weak learner (tree) built in the expansion are stored
+within the following object. Each element corresponds to a specific
+<code>rpart</code> object.</p>
+<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" tabindex="-1"></a><span class="fu">length</span>(bt0<span class="sc">$</span>BTIndivFits)</span></code></pre></div>
+<pre><code>## [1] 50</code></pre>
+<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" tabindex="-1"></a><span class="co"># First tree in the expansion.</span></span>
+<span id="cb44-2"><a href="#cb44-2" tabindex="-1"></a>bt0<span class="sc">$</span>BTIndivFits[[<span class="dv">1</span>]]</span></code></pre></div>
+<pre><code>## n= 16000 
 ## 
 ## node), split, n, deviance, yval
 ##       * denotes terminal node
 ## 
-##  1) root 20000 7274.6970 0.9851696  
-##    2) Age&gt;=18.5 19600 7038.6580 0.9661252  
-##      4) Age&gt;=38.5 11193 3896.8360 0.9131932 *
-##      5) Age&lt; 38.5 8407 3136.2120 1.0370160  
-##       10) Gender=female 4225 1474.3530 0.9393184  
-##         20) Age&gt;=19.5 4026 1380.0720 0.9104576 *
-##         21) Age&lt; 19.5 199   89.4214 1.5041700 *
-##       11) Gender=male 4182 1656.0760 1.1354260 *
-##    3) Age&lt; 18.5 400  215.7846 1.8509420 *</code></pre>
-<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="co"># One can also access to the usual tree outputs.</span></span>
-<span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(BT_algo<span class="sc">$</span>BTIndivFits[[<span class="dv">1</span>]]<span class="sc">$</span>frame)</span></code></pre></div>
-<pre><code>##       var     n        wt      dev      yval   complexity ncompete nsurrogate
-## 1     Age 20000 1478.9331 7274.697 0.9851696 0.0027842524        2          0
-## 2     Age 19600 1448.0725 7038.658 0.9661252 0.0007830279        2          0
-## 4  &lt;leaf&gt; 11193  829.0393 3896.836 0.9131932 0.0007353703        0          0
-## 5  Gender  8407  619.0332 3136.212 1.0370160 0.0007830279        2          2
-## 10    Age  4225  310.9132 1474.353 0.9393184 0.0006680935        1          0
-## 20 &lt;leaf&gt;  4026  296.6375 1380.072 0.9104576         -Inf        0          0
-##         yval2.1      yval2.2
-## 1     0.9851696 1457.0000000
-## 2     0.9661252 1399.0000000
-## 4     0.9131932  757.0000000
-## 5     1.0370160  642.0000000
-## 10    0.9393184  292.0000000
-## 20    0.9104576  270.0000000</code></pre>
+## 1) root 16000 5903.5850 1.0208110  
+##   2) Age&gt;=24.5 13674 4892.0440 0.9677506  
+##     4) Gender=female 6730 2296.5900 0.8985216  
+##       8) Sport=no 3374 1103.4690 0.8238464 *
+##       9) Sport=yes 3356 1189.9800 0.9744537 *
+##     5) Gender=male 6944 2590.6080 1.0350400 *
+##   3) Age&lt; 24.5 2326  993.6583 1.3367930 *</code></pre>
+<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" tabindex="-1"></a>bt0<span class="sc">$</span>BTIndivFits[[<span class="dv">1</span>]]<span class="sc">$</span>frame</span></code></pre></div>
+<pre><code>##      var     n        wt       dev      yval   complexity ncompete nsurrogate
+## 1    Age 16000 1168.6784 5903.5849 1.0208112 0.0030290772        3          0
+## 2 Gender 13674 1001.3448 4892.0442 0.9677506 0.0008209918        3          1
+## 4  Sport  6730  493.1654 2296.5895 0.8985216 0.0005319459        2          2
+## 8 &lt;leaf&gt;  3374  247.8532 1103.4687 0.8238464         -Inf        0          0
+## 9 &lt;leaf&gt;  3356  245.3122 1189.9804 0.9744537         -Inf        0          0
+## 5 &lt;leaf&gt;  6944  508.1794 2590.6078 1.0350402 0.0003220048        0          0
+## 3 &lt;leaf&gt;  2326  167.3337  993.6583 1.3367928 0.0003038660        0          0
+##        yval2.1      yval2.2
+## 1    1.0208112 1193.0000000
+## 2    0.9677506  969.0000000
+## 4    0.8985216  443.0000000
+## 8    0.8238464  204.0000000
+## 9    0.9744537  239.0000000
+## 5    1.0350402  526.0000000
+## 3    1.3367928  224.0000000</code></pre>
 </div>
-<div id="bt_perf-function" class="section level3">
-<h3><code>BT_perf</code> function</h3>
-<p>This function allows the user to determine the best number of
-iterations that has to be performed. This one also depends on the type
-of errors that are available/have been computed during training
+<div id="optimal-iterations-number" class="section level3">
+<h3>Optimal iterations number</h3>
+<p><code>BT_perf</code> function allows the user to determine the best
+number of iterations that has to be performed. This one also depends on
+the type of errors that are available/have been computed during training
 phase.</p>
-<ul>
-<li>The <code>training.error</code> is automatically computed. Please
-note that in case of bagging used, this corresponds to the in-bag errors
-(i.e. a random sub-selection of the original training set).</li>
-<li>If a <code>train.fraction</code> has properly be defined, a
-<code>validation.error</code> will be computed on the validation
-set.</li>
-<li>If a <code>bag.fraction</code> has properly be defined, an
-<code>oob.improvement</code> vector will be computed.</li>
-<li>If cross-validation parameters have been filled, a
-<code>cv.error</code> will be computed.</li>
-</ul>
-<p>These values are stored in the <code>BTErrors</code> object as
-previously shown.</p>
 <p>Depending on the chosen approach, the following methods can be
-applied to compute the best number of iterations.</p>
+applied to compute the best number of iterations:</p>
 <ul>
 <li>If user wants to use the <code>validation.error</code>, the
 <code>argmin(BT$BTErrors$validation.error)</code> will be returned as
@@ -733,216 +807,345 @@ of it.</li>
 <code>argmin(BT$BTErrors$cv.error)</code> will be returned as optimal
 iteration.</li>
 </ul>
-<p>We now present the function arguments:</p>
-<ul>
-<li><code>BTFit_object</code>: a <code>BT</code> algorithm result. In
-our case, <code>BT_algo</code>.</li>
-<li><code>method</code>: Allows the user to specify the method that has
-to be applied to compute the best number of iterations. This can be set
-to <code>validation</code>, <code>OOB</code> or <code>cv</code>
-depending whether the user wants to use <code>validation.error</code>,
-<code>oob.improvement</code> or <code>cv.error</code> as previously
-explained. We emphasize that without specifying the <code>method</code>
-argument a best guest approach will be performed.</li>
-<li><code>plot.it</code>, <code>oobag.curve</code>, <code>overlay</code>
-and <code>main</code>: plot related parameters. If desired, the
-<code>BT_perf</code> function plots the computed errors alongside
-returning the optimal iteration.</li>
-</ul>
-<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a>optimal_perf_validation <span class="ot">&lt;-</span> <span class="fu">BT_perf</span>(BT_algo, <span class="at">method=</span><span class="st">&#39;validation&#39;</span>)</span></code></pre></div>
-<p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASAAAAEgCAMAAAAjXV6yAAAAZlBMVEUAAAAAADoAAGYAAP8AOpAAZrY6AAA6ADo6AGY6OpA6ZmY6kNtmAABmADpmAGZmtrZmtv+QOgCQkGaQtpCQ2/+2ZgC225C2///bkDrb2//b/7bb////AAD/tmb/25D//7b//9v///+r7uVgAAAACXBIWXMAAA7DAAAOwwHHb6hkAAALUElEQVR4nO2dgZqjKBZGb/dU185u0rtVO53t7FalEt7/JVdUEBT4L4qRmHu+b2ZSikTPINwAIikhCW19ArUjggAiCCCCACIIIIIAIgggggAiCCCCACIIIIIAIgggggAiCCCCACIIIIIAIgggggAiCCCCACIIIIIAIgggggAiCCCCACIIIIIAIggwCLpQx9uGZ1MhvaDrkX50n27v9P33dudTHZ2g6z9dJ/5fT47UQQARBBBBABEE6CvpI1mkDfPoS9DtXbyEMbfY7f3HpudRLbYOukgIHUQqaYAIAoggwCDo6/VNnV4+NjyXKhFBABEEEEEAEQQQQQARBJA4CGAF3d4PW55HtVhB16P8WA3hjItJj1AIpwRJj2IIqaQBIgjgCGpuspePk7RlPk4l/e3X+eXjehRDHl4c1AhSZ6mkPbw4SAuS1t5nUoLk55jPuA46y+iPj9+KEX37tdmp1InEQQARBHB/i8nofIChBPW/VqUS8hnfYtejxEEeniBdiKQE+bid9tIXFMCppMVOCOcWa4qQtGMT/Er6LI9qjJFWDDAIOpXotKcKWC7FuyLzoWniC7TwFfxyWUvQslxW+t8361xWy04HQktL0Z4FXUh31y/sMKNxrvdnLUFm8sJ5UZfrjgWZyQvLOu13LEhKEMpuozrojz+WfF/8FFbIrmArtk9BBbMTQSC7DE8PJKjtlF44rrpnQZe2+jkvq4R2LOj23jVfy8bmdyzo+rMrOiUDxV0JMiWoZKC4VFDs+GS+KwaK2lDRQHHWBTLSbSKItbbA7R0kmCUoeklVCeJwpn4C44UiMxmfW5DzOMeophr3KI4FpY0Q3hHZHkqwiiDeAkvO4xyxti4paPjTv4gHEMRboitegsbZBQTR8Oe463qJoGmSFVuxjkQrZpu43DooJCikpWpBHExTF42V8gU1cdCOBHGzyxZEfgpwcvsQRPY/QBCxBdF4e2WCrkf4M2Q9QW61Va+gf7yCR11yBHV/GkG0C0GHpiFLziEygmgsqDVg9z6mIPi8WPeoVBMOxB1hQe3HkCAi34KqTRB+Xszuu0R/roYF0TxBVJUgxvNijIftUoKIIYigIM/hPQUxnhcrLoj6xBQURHUJKvO82I4FlXlebBBkqxQqJIgSgsYmC+K3YsQZer4kUo0EUXcJjiACgpzWPkdQpOkrQF52J6LD198/Jgt9TDrMoCCaIYjGgkz+1QjS9dOpG18E/UFJQSoiiAKCnBvOCqKAoCHpeoL05Uc7ejRtufn6mxaEehQjgigiiNKCTHJbh5ntdxXUNV/XYzxM7pr5238VKEE0CKKpIPIF6TjIFUSOIFPHVCGIMwXPBpHRiMgV5JQIX8EgiB5IkJ2Clxp67qc2xFcODgmilCAKCKJcQXQPQX2H8xfq0GBk5wpSdxBE9xFUbgreWBDNEEQsQco5an1BOcRuxCxBxBTkVlk02KCaBSWzA4LUVJATB00EUS2C4MQEdna+IN9QXJByBbmpvDvSFUSuIFo/DirxJJ1TNYwFWVFevd0180rVL4i19BRv+gtD0FCcps5sgbLljBSNEmwiCPdzMKe/3FmQPWh0RWVwAkX4yDN38kJIkEoIUlaQcje6TqeC6N6CGC/W4E5/ca9eBQV5SViCaHNBjJU42SXI2jGClC9IPaIgDtHpL+6plxOkOILc2zD/ijB52fGmv1ghIUHTu3AkSGUK8iu8FQWZiy8QKOYIauIgc0yGoEAxW13Q6eXj/KNduH1pdgUEqfoE6UDxokdWl4+LjQSZv21zptRwwVaQSgkaLI0FqTsKelNff/5u/1mYnT3xJYJohiCyp1AOJ1A8tA+0FBBk/j0WpDIEqamgkat7C2q7eE6HIg+zJAX1+2KClD0o9JskIchkvl4zf/qhW7Jlv+ljgtSKgrzmf+M4iJkdW5BCgpTnZDeC+s80VNphQaqgIFMF7U7QcGDNgpogqMxrI5YIUrMFqdUFrZKdFaT4gpQaCzKSJk3+kwkyB9hMJoLU1M8gSK0vKDVrYUZ2KiLI7gs0OWxBagtB7Sp4i5d5iwvqtowF+QdPBKmJIBMfqYCg6SkUwMuufWRsTkFy/ue6G+OCgtcREqQcQcoXpEaC4hkvYZzdwteGU/CPQdB0p/PcfP2CZpegcHZTQYGdBQSpuwhqxwSL1kFTQaGdUJAxExQ0pAifwnJWbMWWCfIuuQ8JNhW0Qnb3FBQ5heU42ZV4fdZKglQvSKkNBRV5fVYRQeOD/ADHRA/3FlTm9Vl8QYaHEVTm9VmRS0zgCopkhQVlfyufSQkq8jhUiYORoHGJK3IKqexKPg5V4uDqBBV5fVZBQZPtmwuqMDsv04mg8LfVfUV7FcRawIyfXWEqEKTpJkVdkpUQd5G3stQhyEziTA09sxd5y4Cx0GQdghjPi/EXecsgX5BKS1gzUNQkAkX+Im8Z8Jcq3ViQWYkzUQfxF3nLIHstV/QVKweKyR8a7EXeMnggQQy4i7xlsC9BK2QnggB7EmRXoAKB4udnRqa7E9S2X9Fnp/rsPi2LTzD2FbP3F/46Fy2oV8Nt5j8jzDzb/is+VV9MQ9mu2szjRd76mfgLA8WYt3xmnwKXcY8iWuQtswStwFa3GGuRNzN2n167Y122EsQb1eheFRlfRGfHgioY1SjzFXsb1XigOKjgIm8ZPJAgBtxF3jLYlSD2Im8Z7EkQf5G3DB7j5Ue8RxG4i7xl8RiCmDAXectiV4KYi7xl8RiCyo2sZuMu0VWGMmLsFdlPnJHV3DzLbFt28EKyRlYHkhP19imozMuw/TwLbatDEGNkNTvPQtvqEMQYWc3Ps8y2SgRx3tTLW0pwr4IwePpLNM+nEMSYvBDNcw+CGKMacPrLOM8i2yoRhEc1uCVoV+SMajCmv+yPvFENOP1lfxQe1dgfhUc19seMUY3n4g4jfY+NCALkBIpPSU6g+JRkBYrPSOb0l+dDAkVA8UAxNfejpV8L1aYLH9B2zR0YCc+T3fAMsigdKOpho+TQ0fXY3sM2XfiA23uzqX1tMkioq0x/NzyDPArHQV2PyCm+kEz/kl+bLnJAN5m2uXqQsG109YgVynA2hQXZC4vsv9ChbQVsuuQBTUHgJNSCeBnOwGnFlq091ZGeHNPSCTLpkgecnP2JhHokhpfhDIYS1Pf1LLt7u5s/WQW0527TpQ7Q3XI44aWtzFkZzmF8i/V16FxKCrqYOholvL2/fNxHkC5Ey3IueIt13bqsW0fXVevfYvoNfouzZVSRzEq6H4NjVb7NvntU0iXyZDSyF04zb8cHQMJOxwWGA/NxbrGmCC3PFodpF06gOLysEyTUv4xaJ/cJFJu4fWmXtA39Y/TVg00XPOBMtklNJ2yXoH3DGc6mcCu2PwZBJ+LM3Hg63EhaRjQCSKc9wEwDluHCCCIIIIIAIghQ+FGE/SElCCCCACIIIIIAEkkDRBBABAFEEEAEAUQQQAQBRBBABAFEEEAEAUQQQAQBRBBgC0Ht9IJ4/0qzq6Lul40EJQxUJEcjggDbCPrrtX0w+NzNpr/+/LceS+kmsuiJbi//ayVd+t3Hfx2XT8uZy5YlqJ2++6pXGNbPh+hJYXqL3tXu1qut6JebXo961v1WMys2FNSvAP/9d/vh+vNXN6POCOrm0rVpD2au3QZsKKibJ9dcua11LkSDoE6J2b1ZzbSloH4otxfUVEjf//M6FtR8el5BplrpVvh8ffNvMSlB9pq7KrmdgE/BOugpBR365cBOvYGu8NBhWDl/aMWeUFAT9PRxUFNwbB307dep2zWKg55N0EMhggAiCCCCACIIIIIAIgggggAiCCCCACIIIIIAIgggggAiCCCCACIIIIIAIgggggAiCCCCACIIIIIA/wdsqAciAMtAVQAAAABJRU5ErkJggg==" /><!-- --></p>
-<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a>optimal_perf_oob <span class="ot">&lt;-</span> <span class="fu">BT_perf</span>(BT_algo, <span class="at">method=</span><span class="st">&#39;OOB&#39;</span>, <span class="at">oobag.curve =</span> <span class="cn">TRUE</span>, <span class="at">overlay =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<p>We refer to the package documentation <code>?BT::BT_perf</code> for a
+thorough presentation of this function arguments.</p>
+<p>In our specific context, only the OOB improvements and validation
+errors are available for the given run (no cross-validation
+performed).</p>
+<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" tabindex="-1"></a>perfbt0_OOB <span class="ot">&lt;-</span> <span class="fu">BT_perf</span>(bt0, <span class="at">method =</span> <span class="st">&quot;OOB&quot;</span>, <span class="at">oobag.curve =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <pre><code>## OOB generally underestimates the optimal number of iterations although predictive performance is reasonably competitive.
 ##             Using cv_folds&gt;1 when calling BT usually results in improved predictive performance.</code></pre>
-<p><img src="data:image/png;base64,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" /><!-- --><img src="data:image/png;base64,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" /><!-- --></p>
-<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a>optimal_perf_cv <span class="ot">&lt;-</span> <span class="fu">BT_perf</span>(BT_algo, <span class="at">method=</span><span class="st">&#39;cv&#39;</span>)</span></code></pre></div>
-<p><img src="data:image/png;base64,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" /><!-- --></p>
-<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a>optimal_perf_best_guest <span class="ot">&lt;-</span> <span class="fu">BT_perf</span>(BT_algo, <span class="at">plot.it =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
+<p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASAAAAEgCAMAAAAjXV6yAAAAbFBMVEUAAAAAADoAAGYAAP8AOjoAOpAAZrY6AAA6ADo6AGY6OpA6ZmY6kNtmAABmADpmAGZmtrZmtv+QOgCQZgCQkGaQtpCQ2/+2ZgC225C2///bkDrb2//b/7bb////AAD/tmb/25D//7b//9v///8yGKoAAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAPNUlEQVR4nO2djXbcrBGGSWiS/thfa7fNNtvGa5v7v8cKkLSABmYGjbTahfecxF79IPR4BCMYZpXpOiv1kt2pdqzIcfXx/PVXZlfrgE7KqwOC9fGsvvwsHtE4IFzNA3r/MTxgBStqHdBFPRnbj2W7scYBfb4+uZ/nb78zRzQO6OPZm86l92KwugVh6m0Qpt6LrVQHhKh5QMPLhlLZJroDurjm55xvhBoH9Pnqu69T7+ZhffzhTac7ihlNFtQdxZwuzkXsjmJOrg8rDio2DghXB4SoZUAff/+V/TSrZUC2Bfruf/t8zc1rNA3I2F7Mq/diteqAEHVAiDogRB0Qog4I0RUQ2uE9pgZf6Nvv01N2v5oPQ12mh9Tly8/zt98fz1lCHhDJ6X5E2YlDOxZ07gNmsOzUswXURxQzmiyoj0nn5NugPqKYlxtTRKee8ZHHZjVa0Odr5wJresQ+X7/ftB43k22efQwMrLkNurTmQnv57uvjOWsejTfSPQQP0RyC1wFl5D2g9x/Iu5hxB70UHMqHFT0Er1FAmDogRK0D+nwlL4dqE9AJe4NoHFBhKHFU84Cw94fG/SD8FXQGNPmUjQl9BZ0B4cb2iJoHwgi9WP59rWkFFtRHFCE13kjPdtHf5jMaHJvzd+fiZBQAwmapH1HWUbzYmVXCvBg6S/2Isn33+19+uX+wIj+oPEv9iLJ3bRe0EADhs9QPKWsPpyfKI4bPUj+mTt9t45u3irQNKsxSt6m4FyuOzrap1v0gVC0DGlwaxsvqNUqxK9TVgkaYvRGKlT5ihXxwhjAHcG8qRC2MigBZIypZ0HkKEynFi9yXTthDEw7aY5YRjMrmPc/7k4ugx8Nfys/WeMjsRD7YC0khwC54xAYTKj+QbVuQUzGrabD+/mHaINfrENsgr/KTNvlVD2M/nF4MzWpKkTqAVlQfuqPpFzyrKau424lZBeJyKGJZ6KN1d4CIy6GcsGC0AdDf8rF8NbXbRKwqcJZDoRkF3RTAuewKuOLe3jh1lJPWcxWoYiyHwnNSjsE0l4LTMBX3NolSSRmr0x5PpQURlkPhIdXXaKNLtq9La/eWoIJqLwFoosMujr4cimxBReVr9xaKeA5VAZ6aXowYBkxrgxBhtUsfwUFrHZf52appg3BxejFWcXA9ga0ZuyIqNJ4RkKzHuBlvBZYOXO56I2+p0MtFzxbbgkjLCCsAXQp2hgKKt6jlplALYgk0HR9e84j5huVCysSJZTU17n3t6f2vvxfxeoBZSwCCdEWldUKsAtAUxEmM7jDFrKZ+9dnJH5YpMAa0vPf1gEZdm+aQWFwFghjrxfCspr609z//LBQYAFIUQMqomqc8bnvirWxH0YriKKJZTcdu/vO/hmRBEKCURhUgDeOpbYNcJk5CG4RnNQ3W5WU9ou0BFShU+UH0fNJoVlMzk85HX9cACrchd4e8cMEdwzotw4BLTgG9OH/nwoB0+ThFKIKtLYpzfZOBnp5VgMKm5/CAcgNMXEDjsYTqxC3z3oDEEiyhgOJNdEAauA548Y0sSCpFFw+QMkRAi479Fo+YSJK3ANDYwKS7VXp0DGjpaYNuoRwgyVkN8hJYJQpIZ6+TqMpRZMxq4MLDXyJAy9KTrSRAOn+dZFvlq4ZckjdC8II4oMxrhRQg2SRvhPAXYUC5ty5xC5JJ8sa0IKB0t0ORAelc7cAhkhpAwkne8PAXUUA6O1RUBMQbk6bPalDWi6HhLwmglBAH0HC7eUDQH7bKglAFfpDEejEcUNj7lwBpkzEUf0YtoMLawtylRsmsF5tvGQTk3UgSIB19Wl6GC6h6sGIuTma9GAWQKQEafUMdF7O8zHJHUmiqsdkMLYi3FEFmvZgIoLlzlwQ0RjfVP2Iy68WmW4ZrSwN07dzhJymzAwNk3ITMCkAi68UIgJY/Y0DabAXIvirFj9g2M6slrQZkH69gN+BOrQA02M+fEgvizKxKqBrQ+Ks2wTCSPCA7HPESf6bPrKJZTSlaCUirjQGl4mTiRLOaUpRBUN4bADIwoLCYEFC8vewogmNZnJlVPASPoCpAZnr90Go7QJmxLM7MKpbVlCIaoLR19oC0NtsByo5E0GdW0aymFLEARd350L2PN18GpAJAUVNUBlS9lCsoTjYED/pcAqSnLSpsm8UAVS/lkunms2MwRECT+6yCf7KAsmNZsrMaqGoBaVMEFJRTCygzlsWY1RBZ0VwJSJsaQMpwAIHizGqgWU0pqgOkFQQoJBUAmrq6KkBptkjGrIZM6qkqQFqFgOafIakcoGgHXIVIKaCKtRrrVANIx0Yz76oFVBq0X+Qb5azVkEjdUQFIL54ogwFSaWsF/gJpmZCVs1ZDwISKgFTyq/tPmxIgCAQASNUDwhQ8Yqvj70wFIB1tYgEKHkoyIL42Lq4EKOZTCWj5EBbuCHIKj+QoLgFps9iUfJAEBDmFDEcRzWpKEQNQwkcAEOIHQU4hy1HEsppStBsgo9iAIKeQ6SiWs5pSRAXkB4AWh1YCUiwLCp1CpqNYzmpKERmQUVDgKg5ImWpAoFPIW9RbzmpqWF/TAXyOd2rgUBV+igBNu66AVHAaDRDoFNIdRTSrKT1GMfM5+qChUzcGVKOgOCyrKT3CLP2sljs1eGoISMVbDwAIFTlGMf1MAnTtuf0HDiCjiIDS9bZ49kgOIEEL0vC5WwKC19ui2SNZBkmNUUw/LwDpzLkVgKYtUQcIqLjetpB3S40HEEKJDDlGMf2cAtK5c7cDVFhvW84euXGTBgLS2XM5gKLTCIDg9bZo9sit2/zk5qx0/tztAGXW2+LZI+fiSFELdmDfMidkXgg3qMiQdP7cDQHl1tti2SOvxaFZTUc+9jnODmATAOlCVZaA5q0FQMpEgHiB5AbJHhmVUs5J6Y3z5PZTu/klIF2qCgNQfCTBgkpCe7GrSl8bbu1m9IWojuICkM7Xsgzo+n8WUI0njWaP5FiQs54z34KC9kQX6poDFDXxwoDw7JFzcXhWU2+JzoSyQY8lQAgfMqAkAH+dBaHi9WLTwlb6l48LAwqbo/DIKkCkudI9/KAZkMbOVdGn8edhAEl8fVYRkEbPPTQg8nIoWoquYMN4jxqvypEBkZZDMVJ0BeXvAci5EHq5tyTeUgTKcihOiq5gg79HjdX8BoBqLEgqRVewwds/XnMFAYpGxiBAaaaijdsgPBMnMUVXsEH5HmwloKmoJSCzDyDCcihOiq5ggzLXKMRyXaoBmT0AEcRI0RVsUEEUULku4CGbASJpH0dRK2jf4lj4iCMAkklgZnKAtFkDKCoKuMheFoSuvQtVTNGVbtBGFhB0ze0B4WvvWMWFG/ROgLZ+m5dcLxZu0EoMUP4AHBAceEEPx8DX3lG0rJ1vgPYEBL/2ZAIv0PUFYRuErL0zFeEv0/N1cwvKTJvj7+apo1i0H374y/R8SQDK+UnzhSsW1OG+IqdJqwhemJ6vmwPK1B1fX8ABVBH+og20rCJXlxWA3MU0VIVRmcALdH3Bthak57sqNiDTyVsCggMvGNlfKOKGv2i3aQSEX2lbQJXiFccLf9F+026AgCqs14bF6XHTQQBVLjmNu3nJWQ09bSIDwg5ZBQhwUXgZqCSTvDnpadMhAK1fNy+a5M0EcxiCgEjtActRZBQnmuTNLPLPSwCiNZhbW5DQy6pOt1H+/BsCqv4S3bQNkknydhtANZkXOHUSTPIGrTS4NSBQ+PfRbOIHgVmODw1IJuE2Qa44XXullZXBASWGMsXfDZJJ2Y5LuDie2ICuFpSXL466FAGV0rcXBxDhjuphQLo1HKtcKM7Zb427oYpB5FW6t0eMOmgvN7N6S43GwwHEGbRnzaySSqRt5+/glzQJAEQetJeZWTXHBrQQY9BeZmbV3BkgxqC9zMyqOTSg5ZAga8CMMLNK0XEBVQ0Jpi+ra+3nwIDqhgTlHZfDAoKHBHdOsFQo8eaAwCFBzveLScxqFGp5c0DQkCAnwZLIrMaxtRwSZCRYkpnVuDcxEyytn9W4O/ESLK2f1TiwMgMbjEycErMaxxUeHQdLeFbjsLpxyvbjKzf1jGaPbAVQNkYRMyd5R/GggqeeOVGuj+4oglPPePrkxh3FcYVpQa07iu7bVkiN9MM7iqA4geQijmIp6UAq59o+Mc/yfz/OZYpiLUUQcBTtpBF14ujzdTjwbPOkMM66uDaWcxmsEozFLFKXO9G+XsFnrj6PCXdoZzlPhHcZrBbkRlrkatM9008ZDIFx1vnbPwdAFZfJiTGrgWc1xVXOygDq9PUX/azhSNsGVVymXlcLQrOa4vLtAqd1sG4t+Sz7aLlvqmRfZoXSRwzPvFgQu+aXqY0mnTV5IaKAWLMa5aymuLi271+LqGe546QfMcasBprVFBez9TyHX+CNnzUGQKkXwUaaMaux6tkKLkfvfyeflHXWSbabZ8xq4FlNCeJ4cNfv4+ScdZJ3FImzGk7FrKYUnemNWBAyyDjL3wnjBET0WY1REk/aXYk+q4FmNW1ToSf9qDMaq9TKoH1GeILWKQz4QacLUaFpxlsHZLAk0R2QVSHNeAdEtKBrQH9T3TyeZrxxC+q92Go1D8jNHKKvGu0C8mN2jJfVxjTNi+WDqhoHhK9xahxQtyBMvQ3CROvFurJqHNDO0R33J9lUpY8odH62cUDCmThbVAeEqHlA2Frv1gH5Kf5CtoBbAHKxB/nuddi12/DL56u/EDV4YR8NgAoEdh2b2j0LHkkHAjRZ0LHe5i9f/v3DNYxnH2r/8ce/rB9iJzlf3Mvjt/85SJdx9/M/nteG5eTr4jOWHOttfrIg2zTaMKqPZ/v3c99yO2yxu9xuW3c76/DxbEPyt4mswOe7bgjIR04OT7/7xbUGNvpwAuTfI92xT1Mg4w10Q0C+hx3ufG51LkpdAXkk0+6bTSvcEtAUtepvfmiQvv7nRwpo+G1TQIdc1BtZkJm+XPLHS/yI7WJBrEW9u2lug8Z79k2y/RteFNgGbQfomONBU8PreqbTSMAbj3pybXfSi21pQUccUbTP1mnygwbDmdugLz9PflfiB23YBu27XuwORV/U26Zkvx3qAXXMRvpAOmYjfST1RrqsPquxWh0Qog4IUcuAmN8v1gWqA0LUASHqgBB1QIg6IERtA7ITBb/8hGVOTQM6u/ncOWUTqJYBubEOnyHjWHPzR9E42D3O72YO6oA6oKw6IEQdECISoP8DcwbDq7fn97sAAAAASUVORK5CYII=" style="display: block; margin: auto;" /><img src="data:image/png;base64,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" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1" tabindex="-1"></a>perfbt0_OOB</span></code></pre></div>
+<pre><code>## [1] 50</code></pre>
+<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1" tabindex="-1"></a>perfbt0_val <span class="ot">&lt;-</span> <span class="fu">BT_perf</span>(bt0, <span class="at">method =</span> <span class="st">&quot;validation&quot;</span>)</span></code></pre></div>
+<p><img src="data:image/png;base64,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" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1" tabindex="-1"></a>perfbt0_val</span></code></pre></div>
+<pre><code>## [1] 50</code></pre>
+<p>Using the implemented “best guess” approach</p>
+<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb55-1"><a href="#cb55-1" tabindex="-1"></a>perfbt0_BG <span class="ot">&lt;-</span> <span class="fu">BT_perf</span>(bt0, <span class="at">plot.it =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
 <pre><code>## Using validation method...</code></pre>
+<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb57-1"><a href="#cb57-1" tabindex="-1"></a>perfbt0_BG</span></code></pre></div>
+<pre><code>## [1] 50</code></pre>
 </div>
-<div id="summary" class="section level3">
-<h3><code>summary</code></h3>
-<p>This function allows to compute the relative influence and plot it.
-It is in fact a wrapper for the <code>BT_relative_influence</code> which
-is not intended to be used per end-user.</p>
-<p>Up to now, the computation of the relative influence isn’t available
-for the permutation approach. This one should still be developed.</p>
-<p>Regarding the currently developed method, we used the results
-furnished by <code>rpart.object</code>. In fact, each tree in the
-expansion is built thanks to this package and is stored in the
-<code>BT$BTIndivFits</code> list. Moreover, note that this algorithm has
-been adapted from <code>rpart</code> itself and therefore cover special
-cases (e.g. need to rescale for <code>anova</code> method).</p>
-<p>One can then present the function’s arguments:</p>
-<ul>
-<li><code>object</code>: a <code>BTFit</code> object, i.e. the result of
-the <code>BT</code> call.</li>
-<li><code>n.iter</code>: the number of iterations to use to compute the
-relative influence. This parameter is often set to the optimal number of
-iterations. By default, all the built trees will be used.</li>
-<li><code>method</code>: the function that has to be called to compute
-the relative influence. As previously mentioned, only one approach is
-currently available. This parameter should therefore remains set to its
-default value.</li>
-<li><code>normalize</code>: if the user wants to normalize the relative
-influence such that the sum over all normalized relative influence sum
-up to 100.</li>
-<li><code>order_it</code>: indicates whether the user wants to sort the
-relative influence or not.</li>
-<li><code>cBars</code> and <code>plot_it</code>: relative influence plot
-related parameters, respectively the number of bars to plot in the
-barplot and a boolean specifying whether the plot is expected or
-not.</li>
-</ul>
-<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(BT_algo)</span></code></pre></div>
-<p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASAAAAEgCAMAAAAjXV6yAAAAclBMVEUAAAAAADoAAGYAAP8AOpAAVf8AZrYAqv8A//86AAA6ADo6kJA6kNtmAABmADpmZjpmZmZmkJBmtrZmtv+QOgCQZgCQkGaQtpCQ2/+2ZgC2tma225C2/7a2///bkDrb/7bb////tmb/25D//7b//9v///9BMME9AAAACXBIWXMAAA7DAAAOwwHHb6hkAAAH9UlEQVR4nO2dDXubNhRGSZZlcxd3W511ZW1pscP//4vTJ5Zt5BdqQlzrnKfN09jiGk71gblCVB2cpXrrHbh2ECRAkABBAgQJECRAkABBAgQJECRAkABBAgQJECRAkABBAgQJECRAkABBAgQJECRAkABBAgQJECRAkABBAgQJECRAkABBAgQJECRAkABBAgQJECRAkABBAgQJECRAkABBAgQJECRAkABBAgQJECRAkABBAgQJECRAkABBAgQJECRAkABBAgQJECRAkABBAgQJECRAkABBAgQJECRAkABBAgQJECRAkABBAgQJECRAkABBAgQJZhdU/SS8naBffgoQJECQAEECBAkQJJhTUF09IegM23d/3n9FUJ7m/vNqg6AsL8+P5o/7Z11Vdx/vPhln5kw01+yKE9QaI4210tWmpbVV+HW7yhgqTlD98L3brY2NrWto9d0n91vXZjqm0gT5muIqjzNiKlTr6tM20zGVJqgJX343prOOgvqXENSF/nm3fjyuQdmAb33o45hLUJRh+mXfphrbB50b9QsTZLtoi+2KDkYx21sjKOmJrR1zHnT/n21otmPKnV2XJeiU3OiOIF+b/DkQggZp82M7gsaDIBXwJ+HNBN0aCBIgSLB8HzT3B74y8wv69TwIQpAIiCAREEEiIIJEwNsVtFubQThcIBvi/KXWPuDNCmrsN/WX5/z1nsIFhYuHMYs6QOGC4tXnxl2ar1xuebf+sPaXgJqjrPPu/cfMRddbFfTynFwqjLnl3Tpcoj/JOu/Wuc7qVgWluZw+txxTzqdZ5/yl19sWVFc2XdHnlt2L5sdp1jmfG7tdQaFKGBl9bjkKOs06lyeo76TbWIO6UK1Oa1B32CKPAt6qoJgjdB1MOPoo6DTrXKAgM4C7iS7VY9fnlqMg98JB1rlEQf6rhj+5CbnlXtDheVB8Zzjg7QqaKSCCREAEiYAIEgERJAKS9ikLBAkQJFisD5r7c5ZifkG/DYKgPiCCREAEiYAIEgERJAIWIii5ODRMm7kgVIigtgqJntx22StmhQiqXQL6TB66cEGJme27f1fhHud2n3aushNByhBkXERD25Vpba7F2R/21kOXdi68Bjkvvo/2d/U2D9999r4N+efiBXW2nVVuqoI10cZbMpOEdCZgOYI6d5/h9p0dyXpBRgyCkjSr8XIoiBrkiKNYa2qQX1ngoA9CkBmx7CDemlF9u3Jp54NR7Ny9mYUI8l817In0dvX3KtyJGc+DwlSios+D9uTW6MgGRJAIiCARsDRBkwMiSAQk7VMWCBIgSPDqfdDc8ZdmfkG/H4Cgk4AIEgERJAIiSAREkAhYlqDTDHS8KJ1NPRclaCADHa615i+5FiVoIAONoIShDLRvYjavmLnkWpKgoQx06IOoQZ7TDDSCjjnKQCNogDQDjaCEoQw0ghKGMtAIShnIQPeCcqnnogQNZKDjV41s6rksQT2j84cIUgERJAIWKmh8QLIaZYEgAYIECBIsv/LClfB2guZ5faYwk1//8YKXBkSQCIggERBBIiCCREAEiYAIEgERJAIi6EZBkABBAgQJECRAkABBAgQJECRAkABBAgQJECSYV1DrJxON4eW52q/8NW4j/2yUkcXt/NzHifs0xKyC7INbxj2FzPixT+mwhzB6ozDdbVzx9uG7W4llyj4NMqcgv4BOnV05LyU87OX+6+iNdmsraGRxX2xK+BxzCuoPevQW/bpNIzZqHv4xgkYW95Nyf2ifjphVkJ8qPGFn9hOw5UamnO2DRhZv77+sXRc3fZ+OmFOQb+oTGrydPjtyI9tUrKCRxRt7A4WdxTx5n455S0Ft7KPHHLGRM0XQXag4VyVoYnVu3Sg/biNXakITa8IdOJuramLTOkT/uK6RGzVh0spm5Gd4I8bOVXXSk4bUxq+LNmWjevww7++UaK9smJ9yUubv/Zi2UT3hRLGJMq/pRNE/p23cvoQ2E57pNuWrxsjibfwmM36fBuHLqgBBAgQJECRAkABBAgQJECRAkABBAgQJECRAkABBAgQJECRAkABBAgQJECRAkABBAgQJECRAkABBAgQJFhLkJv3GbHngYK3KNr925cHrTVX9kVvj8lVYTFCYs5wcW3rg2YU9j7DrW44tOw/LChpa2/zk3+c4u0rqq7CsID+Dpan2D5Os7bQxNy3+4dt60y/KHMtYvJQPaze/rKruv6TPwu1jufc7/8Jj16UBLuINalDjlqf2TaUOv4ea4YsZi7GMxb9npflnvKYPC97H8u+HYE9dGuAilhXUVHGZ3Pb+qz3Q95/8LMXYdOxkQlOgL2M36tfWDU8JTgQlseL7UWoS4CIWHsU2cUpufCSymwq2F2T/mgJ9GVug73f2KzXHXw9j7WIbTT7k4j1fsgZtV7YatXHCqqsxpk/5nNQg2+ZMC+vL2G3PCUpjOUHhFoSDABexaBNzM6P7GZXxPzxtYu4egs3hrEtZg0KZ0xo0B8v2QXXojx32AG0n0SZNzPz4y3VDR+dLJ4Ke0lbaJe/vO/Z5WFbQbm2GeXebQO1GJF95qqfkBLD2g3Qo4zc6EfTybJ9eXm3SWPthzX5YGuAiFj4PctPr7SlKqCZujq49jtqdB3X9yXYoYxkQ5FZK/xDPg2KV60+MHg8DXARfVgUIEiBIgCABggQIEiBIgCABggQIEiBIgCABggQIEiBIgCABggQIEiBIgCABggQIEiBIgCDB/5RgGguwYsECAAAAAElFTkSuQmCC" /><!-- --></p>
-<pre><code>##           var   rel_inf
-## Age       Age 70.162422
-## Sport  Gender 13.477682
-## Gender  Sport  9.855048
-## Split   Split  6.504847</code></pre>
-</div>
-<div id="predict-function" class="section level3">
-<h3><code>predict</code> function</h3>
-<p>Using the global fit on the training set (the unique fit if no
-cross-validation), one can predict (S3 method) on a new database. Here
-are the function arguments:</p>
-<ul>
-<li><code>object</code>: a <code>BTFit</code> object</li>
-<li><code>newdata</code>: the new data set used to realize the
-predictions.</li>
-<li><code>n.iter</code>: the number of boosting iterations (i.e. the
-number of trees) used to perform the predictions. Usually, all the
-iterations (i.e. the trees) up to the best one are considered to build
-the predictions. Please note that this parameter can be a vector. In
-such a case, a matrix containing the predictions for each element in
-<code>n.iter</code> will be returned.</li>
-<li><code>type</code>: Specify if one wants to predict on the ‘response’
-or the ‘link’ scale.</li>
-<li><code>single.iter</code>: If set to <code>TRUE</code> only the
-<code>n.iter</code> tree will be used to predict (i.e. not all the trees
-up to <code>n.iter</code>).</li>
-</ul>
-<p>Please note that if the <code>keep.data</code> argument was set to
-<code>TRUE</code> and if the <code>newdata</code> is not specified, the
-prediction will be achieved on the original training set.</p>
-<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="#cb60-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Predict (response scale) using all trees up to best validation iteration. </span></span>
-<span id="cb60-2"><a href="#cb60-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(<span class="fu">predict</span>(BT_algo, <span class="at">n.iter =</span> optimal_perf_validation, <span class="at">type =</span> <span class="st">&#39;response&#39;</span>), <span class="dv">10</span>)</span></code></pre></div>
-<pre><code>## As newdata is missing or is not a data frame, the training set has been used thanks to the keep.data = TRUE parameter.</code></pre>
-<pre><code>##  [1] 0.1512079 0.1374772 0.1479626 0.1501892 0.1551795 0.1532813 0.1334080
-##  [8] 0.1412066 0.1363647 0.1244193</code></pre>
-<div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb63-1"><a href="#cb63-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Predict (link scale) using all trees up the best iteration OOB/CV.</span></span>
-<span id="cb63-2"><a href="#cb63-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(<span class="fu">predict</span>(BT_algo, <span class="at">newdata =</span> dataset, <span class="at">n.iter =</span> <span class="fu">c</span>(optimal_perf_oob, optimal_perf_cv), <span class="at">type =</span> <span class="st">&#39;link&#39;</span>), <span class="dv">10</span>) </span></code></pre></div>
-<pre><code>##            [,1]      [,2]
-##  [1,] -1.886696 -1.881140
-##  [2,] -1.987535 -2.013851
-##  [3,] -1.911317 -1.910444
-##  [4,] -1.895761 -1.901736
-##  [5,] -1.859751 -1.853420
-##  [6,] -1.858016 -1.864961
-##  [7,] -2.027736 -2.075813
-##  [8,] -1.962980 -1.977309
-##  [9,] -2.000500 -2.043417
-## [10,] -2.098513 -2.209579</code></pre>
-<div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb65-1"><a href="#cb65-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Predict using only the 40th tree.</span></span>
-<span id="cb65-2"><a href="#cb65-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(<span class="fu">predict</span>(BT_algo, <span class="at">n.iter =</span> <span class="dv">40</span>, <span class="at">type =</span> <span class="st">&#39;response&#39;</span>, <span class="at">single.iter =</span> <span class="cn">TRUE</span>), <span class="dv">10</span>) </span></code></pre></div>
-<pre><code>## As newdata is missing or is not a data frame, the training set has been used thanks to the keep.data = TRUE parameter.</code></pre>
-<pre><code>##  [1] 1.0726613 0.7460608 1.0726613 0.9975383 1.0726613 1.0726613 0.7460608
-##  [8] 1.0726613 0.7460608 0.9109593</code></pre>
-</div>
-<div id="print-function" class="section level3">
-<h3><code>print</code> function</h3>
-<p>One can also print the <code>BTFit</code> object (i.e. the result of
-the <code>BT</code> call) using the <code>print</code> S3 method. The
-later will display the call, the relative influence and the best
-iteration depending on the methods (i.e. <code>validation</code>,
-<code>OOB</code> and <code>cv</code>) available.</p>
-<div class="sourceCode" id="cb68"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb68-1"><a href="#cb68-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(BT_algo)</span></code></pre></div>
-<pre><code>## BT(formula = as.formula(&quot;Y_normalized ~ Age + Sport + Split + Gender&quot;), 
-##     data = dataset, ABT = F, n.iter = 300, train.fraction = 0.8, 
-##     interaction.depth = 4, shrinkage = 0.01, bag.fraction = 0.5, 
-##     colsample.bytree = 3, keep.data = T, is.verbose = F, cv.folds = 3, 
-##     folds.id = NULL, n.cores = 1, weights = ExpoR, seed = 44)
-## A boosting tree model with Tweedie parameter : 1  has been fitted.
-##  300 iterations were performed.</code></pre>
-<pre><code>## OOB generally underestimates the optimal number of iterations although predictive performance is reasonably competitive.
-##             Using cv_folds&gt;1 when calling BT usually results in improved predictive performance.</code></pre>
-<pre><code>## The best out-of-bag iteration was 136.
-## The best cross-validation iteration was 243.
-## The best validation-set iteration was 115.
-## There were 4 predictors of which 4 had non-zero influence.</code></pre>
-</div>
-<div id="bt_more-function" class="section level3">
-<h3><code>BT_more</code> function</h3>
-<p>Sometimes, it might be useful to continue the training on further
-iterations. This can happen e.g. if the initial <code>n.iter</code>
-parameter was not set high enough and that the best iteration computed
-corresponds to this value, meaning that the minimal error (and the
-related iteration) has yet to be found. This training continuation can
-be performed thanks to the <code>BT_more</code> function. This one has
-the following argument:</p>
-<ul>
-<li><code>BTFit_object</code>: an initial <code>BT</code> call on which
-we want to continue the training/perform more iterations.</li>
-<li><code>new.n.iter</code>: number of new boosting/tree iterations to
-compute. In total, the <code>BT</code> object will end up with
-<code>n.iter + new.n.iter</code> iterations.</li>
-<li><code>is.verbose</code>: whether or not the user wants to display
-algorithm evolution.</li>
-<li><code>seed</code>: optional parameter that allows reproducible
-example.</li>
-</ul>
+<div id="continue-training" class="section level3">
+<h3>Continue training</h3>
+<p>It clearly seems that our model does not contain enough weak
+learners. In fact, the optimal number of iterations is equal to the
+model number of iterations, meaning that the minimal error (and the
+related iteration) should still be found. It’s therefore interesting to
+continue the training.</p>
+<p>This training continuation can be performed thanks to the
+<code>BT_more</code> function. The arguments of this function are
+explained in <code>?BT::BT_more</code> and we therefore refer to it for
+more details.</p>
 <p>It will then return a <code>BTFit</code> object (as the
 <code>BT</code> function does) augmented by the new boosting
 iterations.</p>
-<p>We emphasize that the call to this function call only be made if the
-original <code>BT</code> call: * has no cross-validation; * has been
-computed with <code>keep.data</code> parameter set to
-<code>TRUE</code>.</p>
-<p>We thus need to re-fit the first example (with <code>cv.folds</code>
-set to 1 and <code>keep.data=TRUE</code>) to show the usage of this
-function.</p>
-<div class="sourceCode" id="cb72"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb72-1"><a href="#cb72-1" aria-hidden="true" tabindex="-1"></a>BT_algo <span class="ot">&lt;-</span> <span class="fu">BT</span>(<span class="at">formula =</span> <span class="fu">as.formula</span>(<span class="st">&quot;Y_normalized ~ Age + Sport + Split + Gender&quot;</span>),</span>
-<span id="cb72-2"><a href="#cb72-2" aria-hidden="true" tabindex="-1"></a>              <span class="at">data =</span> dataset,</span>
-<span id="cb72-3"><a href="#cb72-3" aria-hidden="true" tabindex="-1"></a>              <span class="at">ABT =</span> F,</span>
-<span id="cb72-4"><a href="#cb72-4" aria-hidden="true" tabindex="-1"></a>              <span class="at">n.iter =</span> <span class="dv">300</span>,</span>
-<span id="cb72-5"><a href="#cb72-5" aria-hidden="true" tabindex="-1"></a>              <span class="at">train.fraction =</span> <span class="fl">0.8</span>,</span>
-<span id="cb72-6"><a href="#cb72-6" aria-hidden="true" tabindex="-1"></a>              <span class="at">interaction.depth =</span> <span class="dv">4</span>,</span>
-<span id="cb72-7"><a href="#cb72-7" aria-hidden="true" tabindex="-1"></a>              <span class="at">shrinkage =</span> <span class="fl">0.01</span>,</span>
-<span id="cb72-8"><a href="#cb72-8" aria-hidden="true" tabindex="-1"></a>              <span class="at">bag.fraction =</span> <span class="fl">0.5</span>,</span>
-<span id="cb72-9"><a href="#cb72-9" aria-hidden="true" tabindex="-1"></a>              <span class="at">colsample.bytree =</span> <span class="dv">3</span>,</span>
-<span id="cb72-10"><a href="#cb72-10" aria-hidden="true" tabindex="-1"></a>              <span class="at">keep.data =</span> T,</span>
-<span id="cb72-11"><a href="#cb72-11" aria-hidden="true" tabindex="-1"></a>              <span class="at">is.verbose =</span> F,</span>
-<span id="cb72-12"><a href="#cb72-12" aria-hidden="true" tabindex="-1"></a>              <span class="at">cv.folds =</span> <span class="dv">1</span>,</span>
-<span id="cb72-13"><a href="#cb72-13" aria-hidden="true" tabindex="-1"></a>              <span class="at">folds.id =</span> <span class="cn">NULL</span>,</span>
-<span id="cb72-14"><a href="#cb72-14" aria-hidden="true" tabindex="-1"></a>              <span class="at">n.cores =</span> <span class="dv">1</span>,</span>
-<span id="cb72-15"><a href="#cb72-15" aria-hidden="true" tabindex="-1"></a>              <span class="at">weights =</span> ExpoR,</span>
-<span id="cb72-16"><a href="#cb72-16" aria-hidden="true" tabindex="-1"></a>              <span class="at">seed =</span> <span class="dv">44</span>)</span></code></pre></div>
-<p>We can then call the <code>BT_more</code> function to perform 100 new
-iterations and use the new object as an usual <code>BTFit</code>
-one.</p>
-<div class="sourceCode" id="cb73"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb73-1"><a href="#cb73-1" aria-hidden="true" tabindex="-1"></a>BT_algo_contd <span class="ot">&lt;-</span> <span class="fu">BT_more</span>(BT_algo, <span class="at">new.n.iter =</span> <span class="dv">100</span>, <span class="at">seed =</span> <span class="dv">404</span>)</span>
-<span id="cb73-2"><a href="#cb73-2" aria-hidden="true" tabindex="-1"></a><span class="co"># See parameter, predict, ...</span></span>
-<span id="cb73-3"><a href="#cb73-3" aria-hidden="true" tabindex="-1"></a>BT_algo_contd<span class="sc">$</span>BTParams<span class="sc">$</span>n.iter</span></code></pre></div>
-<pre><code>## [1] 400</code></pre>
-<div class="sourceCode" id="cb75"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb75-1"><a href="#cb75-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(<span class="fu">predict</span>(BT_algo_contd, <span class="at">n.iter =</span> <span class="dv">350</span>, <span class="at">type=</span><span class="st">&#39;link&#39;</span>), <span class="dv">10</span>)</span></code></pre></div>
+<p>We emphasize that the call to this function can only be made if the
+original <code>BT</code> call:</p>
+<ul>
+<li>has no cross-validation;</li>
+<li>has been computed with <code>keep.data</code> parameter set to
+<code>TRUE</code>.</li>
+</ul>
+<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="#cb59-1" tabindex="-1"></a>bt1 <span class="ot">&lt;-</span> <span class="fu">BT_more</span>(bt0, <span class="at">new.n.iter =</span> <span class="dv">150</span>, <span class="at">seed =</span> <span class="dv">4</span>)</span>
+<span id="cb59-2"><a href="#cb59-2" tabindex="-1"></a><span class="co"># See parameters and different inputs.</span></span>
+<span id="cb59-3"><a href="#cb59-3" tabindex="-1"></a>bt1<span class="sc">$</span>BTParams<span class="sc">$</span>n.iter</span></code></pre></div>
+<pre><code>## [1] 200</code></pre>
+<p>It clearly seems that we now reached an optimum.</p>
+<div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb61-1"><a href="#cb61-1" tabindex="-1"></a>perfbt1_OOB <span class="ot">&lt;-</span> <span class="fu">BT_perf</span>(bt1, <span class="at">method =</span> <span class="st">&quot;OOB&quot;</span>, <span class="at">plot.it =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
+<pre><code>## OOB generally underestimates the optimal number of iterations although predictive performance is reasonably competitive.
+##             Using cv_folds&gt;1 when calling BT usually results in improved predictive performance.</code></pre>
+<div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb63-1"><a href="#cb63-1" tabindex="-1"></a>perfbt1_val <span class="ot">&lt;-</span> <span class="fu">BT_perf</span>(bt1, <span class="at">method =</span> <span class="st">&quot;validation&quot;</span>, <span class="at">plot.it =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb63-2"><a href="#cb63-2" tabindex="-1"></a>perfbt1_OOB</span></code></pre></div>
+<pre><code>## [1] 80</code></pre>
+<div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb65-1"><a href="#cb65-1" tabindex="-1"></a>perfbt1_val</span></code></pre></div>
+<pre><code>## [1] 191</code></pre>
+</div>
+<div id="cross-validation" class="section level3">
+<h3>Cross-validation</h3>
+<p>We often favor doing cross-validation to find the optimal number of
+iterations. That being said, this approach can be time-consuming and a
+balance has to be found by the modeler.</p>
+<p>Let’s see the results if a 3-folds cross-validation is performed.
+Please note that the <code>train.fraction</code> is now set to 1 as
+creating a validation set is less meaningful in the cross-validation
+context.</p>
+<div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb67-1"><a href="#cb67-1" tabindex="-1"></a>bt2 <span class="ot">&lt;-</span> <span class="fu">BT</span>(<span class="at">formula =</span> formFreq, <span class="at">data =</span> trainSet, <span class="at">tweedie.power =</span> <span class="dv">1</span>, <span class="at">ABT =</span> <span class="cn">FALSE</span>, <span class="at">n.iter =</span> <span class="dv">200</span>,</span>
+<span id="cb67-2"><a href="#cb67-2" tabindex="-1"></a>    <span class="at">train.fraction =</span> <span class="dv">1</span>, <span class="at">interaction.depth =</span> <span class="dv">3</span>, <span class="at">shrinkage =</span> <span class="fl">0.01</span>, <span class="at">bag.fraction =</span> <span class="fl">0.5</span>,</span>
+<span id="cb67-3"><a href="#cb67-3" tabindex="-1"></a>    <span class="at">colsample.bytree =</span> <span class="cn">NULL</span>, <span class="at">keep.data =</span> <span class="cn">TRUE</span>, <span class="at">is.verbose =</span> <span class="cn">FALSE</span>, <span class="at">cv.folds =</span> <span class="dv">3</span>,</span>
+<span id="cb67-4"><a href="#cb67-4" tabindex="-1"></a>    <span class="at">folds.id =</span> <span class="cn">NULL</span>, <span class="at">n.cores =</span> <span class="dv">1</span>, <span class="at">weights =</span> ExpoR, <span class="at">seed =</span> <span class="dv">4</span>)</span></code></pre></div>
+<p>Different objects are now available within the new <code>BT</code>
+results</p>
+<div class="sourceCode" id="cb68"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb68-1"><a href="#cb68-1" tabindex="-1"></a>bt2<span class="sc">$</span>cv.folds</span></code></pre></div>
+<pre><code>## [1] 3</code></pre>
+<div class="sourceCode" id="cb70"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb70-1"><a href="#cb70-1" tabindex="-1"></a><span class="fu">str</span>(bt2<span class="sc">$</span>folds)</span></code></pre></div>
+<pre><code>##  int [1:40000] 3 3 3 3 3 2 1 2 3 2 ...</code></pre>
+<div class="sourceCode" id="cb72"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb72-1"><a href="#cb72-1" tabindex="-1"></a><span class="fu">str</span>(bt2<span class="sc">$</span>cv.fitted)</span></code></pre></div>
+<pre><code>##  num [1:40000] -2.06 -1.82 -1.79 -1.68 -2.04 ...</code></pre>
+<div class="sourceCode" id="cb74"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb74-1"><a href="#cb74-1" tabindex="-1"></a><span class="fu">str</span>(bt2<span class="sc">$</span>BTErrors)</span></code></pre></div>
+<pre><code>## List of 4
+##  $ training.error  : num [1:200] 0.369 0.371 0.363 0.361 0.355 ...
+##  $ validation.error: NULL
+##  $ oob.improvement : num [1:200] 1.88e-05 2.37e-05 2.79e-05 3.01e-05 3.72e-06 ...
+##  $ cv.error        : num [1:200] 0.366 0.366 0.366 0.366 0.366 ...
+##  - attr(*, &quot;class&quot;)= chr &quot;BTErrors&quot;</code></pre>
+<p>One can also find the optimal number of iterations via</p>
+<div class="sourceCode" id="cb76"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb76-1"><a href="#cb76-1" tabindex="-1"></a>perfbt2_cv <span class="ot">&lt;-</span> <span class="fu">BT_perf</span>(bt2, <span class="at">method =</span> <span class="st">&quot;cv&quot;</span>)</span></code></pre></div>
+<p><img src="data:image/png;base64,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" style="display: block; margin: auto;" /></p>
+</div>
+<div id="hyperparameter-optimization" class="section level3">
+<h3>Hyperparameter Optimization</h3>
+<p>We only worked with one parameter set up to now. In practice, this
+set has to be found. An usual approach consists in performing a grid
+search and assessing the performances via cross-validation. Please note
+that using a validation set can also be used, depending on the
+computation time.</p>
+<p>For this presentation, only one extra boosting tree algorithm will be
+fitted. In particular, only one different value for
+<code>interaction.depth</code> will be investigated. In reality the grid
+search should be way broader, trying multiple multidimensional
+combinations involving different parameters.</p>
+<div class="sourceCode" id="cb77"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb77-1"><a href="#cb77-1" tabindex="-1"></a>bt3 <span class="ot">&lt;-</span> <span class="fu">BT</span>(<span class="at">formula =</span> formFreq, <span class="at">data =</span> trainSet, <span class="at">tweedie.power =</span> <span class="dv">1</span>, <span class="at">ABT =</span> <span class="cn">FALSE</span>, <span class="at">n.iter =</span> <span class="dv">225</span>,</span>
+<span id="cb77-2"><a href="#cb77-2" tabindex="-1"></a>    <span class="at">train.fraction =</span> <span class="dv">1</span>, <span class="at">interaction.depth =</span> <span class="dv">2</span>, <span class="at">shrinkage =</span> <span class="fl">0.01</span>, <span class="at">bag.fraction =</span> <span class="fl">0.5</span>,</span>
+<span id="cb77-3"><a href="#cb77-3" tabindex="-1"></a>    <span class="at">colsample.bytree =</span> <span class="cn">NULL</span>, <span class="at">keep.data =</span> <span class="cn">TRUE</span>, <span class="at">is.verbose =</span> <span class="cn">FALSE</span>, <span class="at">cv.folds =</span> <span class="dv">3</span>,</span>
+<span id="cb77-4"><a href="#cb77-4" tabindex="-1"></a>    <span class="at">folds.id =</span> <span class="cn">NULL</span>, <span class="at">n.cores =</span> <span class="dv">1</span>, <span class="at">weights =</span> ExpoR, <span class="at">seed =</span> <span class="dv">4</span>)</span></code></pre></div>
+<p>We generally select the best model by finding the one with the lowest
+cross-validation error.</p>
+<div class="sourceCode" id="cb78"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb78-1"><a href="#cb78-1" tabindex="-1"></a>indexMin <span class="ot">&lt;-</span> <span class="fu">which.min</span>(<span class="fu">c</span>(<span class="fu">min</span>(bt2<span class="sc">$</span>BTErrors<span class="sc">$</span>cv.error), <span class="fu">min</span>(bt3<span class="sc">$</span>BTErrors<span class="sc">$</span>cv.error)))</span>
+<span id="cb78-2"><a href="#cb78-2" tabindex="-1"></a>btOpt <span class="ot">&lt;-</span> <span class="cf">if</span> (indexMin <span class="sc">==</span> <span class="dv">1</span>) bt2 <span class="cf">else</span> bt3</span>
+<span id="cb78-3"><a href="#cb78-3" tabindex="-1"></a>perfbtOpt_cv <span class="ot">&lt;-</span> <span class="fu">BT_perf</span>(btOpt, <span class="at">method =</span> <span class="st">&quot;cv&quot;</span>, <span class="at">plot.it =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb78-4"><a href="#cb78-4" tabindex="-1"></a></span>
+<span id="cb78-5"><a href="#cb78-5" tabindex="-1"></a>btOpt</span></code></pre></div>
+<pre><code>## BT(formula = formFreq, data = trainSet, tweedie.power = 1, ABT = FALSE, 
+##     n.iter = 225, train.fraction = 1, interaction.depth = 2, 
+##     shrinkage = 0.01, bag.fraction = 0.5, colsample.bytree = NULL, 
+##     keep.data = TRUE, is.verbose = FALSE, cv.folds = 3, folds.id = NULL, 
+##     n.cores = 1, weights = ExpoR, seed = 4)
+## A boosting tree model with Tweedie parameter : 1  has been fitted.
+##  225 iterations were performed.</code></pre>
+<pre><code>## OOB generally underestimates the optimal number of iterations although predictive performance is reasonably competitive.
+##             Using cv_folds&gt;1 when calling BT usually results in improved predictive performance.</code></pre>
+<pre><code>## The best out-of-bag iteration was 113.
+## The best cross-validation iteration was 199.
+## There were 4 predictors of which 4 had non-zero influence.</code></pre>
+<div class="sourceCode" id="cb82"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb82-1"><a href="#cb82-1" tabindex="-1"></a>perfbtOpt_cv</span></code></pre></div>
+<pre><code>## [1] 199</code></pre>
+</div>
+<div id="relative-influence" class="section level3">
+<h3>Relative influence</h3>
+<p>Now that the optimal model has been found, one can compute the
+relative influence. It corresponds to the gain made by splitting over
+the features, which is then normalized in order to sum up to 100%.</p>
+<p>The <code>summary</code> function allows to compute these values and
+plot. We refer to this function documentation
+<code>?BT:::summary.BTFit</code> for a thorough presentation.</p>
+<p>The computation of the relative influence isn’t currently available
+for the permutation approach. This one should still be developed.</p>
+<div class="sourceCode" id="cb84"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb84-1"><a href="#cb84-1" tabindex="-1"></a><span class="fu">summary</span>(btOpt, <span class="at">n.iter =</span> perfbtOpt_cv)</span></code></pre></div>
+<p><img src="data:image/png;base64,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" /><!-- --></p>
+<pre><code>##           var   rel_inf
+## Age    Gender 71.815815
+## Sport   Sport 17.717977
+## Gender    Age  7.899891
+## Split   Split  2.566317</code></pre>
+</div>
+<div id="prediction" class="section level3">
+<h3>Prediction</h3>
+<p>Fortunately, once a <code>BT</code> object created we can use it to
+predict on a new database, using the <code>predict</code> function. To
+this end, the optimal number of iterations is generally a desirable
+input. We also underline that the model fitted on the whole training set
+is used to perform these predictions.</p>
+<p>The interested reader can find a description of the function
+arguments in the related documentation <code>?BT:::predict.BTFit</code>.
+Please note that if the <code>keep.data</code> argument was set to
+<code>TRUE</code> and if the <code>newdata</code> is not specified, the
+prediction will be achieved on the original training set.</p>
+<p>We explicit below two usages:</p>
+<ul>
+<li>Prediction (on the link/response scale) using all weak learners up
+to the best iteration obtained via OOB and CV (it provides 2-dimensional
+matrix). This is one of the most common option used.</li>
+</ul>
+<div class="sourceCode" id="cb86"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb86-1"><a href="#cb86-1" tabindex="-1"></a><span class="fu">head</span>(<span class="fu">predict</span>(btOpt, <span class="at">n.iter =</span> <span class="fu">c</span>(<span class="fu">BT_perf</span>(btOpt, <span class="at">method =</span> <span class="st">&quot;OOB&quot;</span>, <span class="at">plot.it =</span> <span class="cn">FALSE</span>), perfbtOpt_cv),</span>
+<span id="cb86-2"><a href="#cb86-2" tabindex="-1"></a>    <span class="at">type =</span> <span class="st">&quot;link&quot;</span>), <span class="dv">10</span>)</span></code></pre></div>
 <pre><code>## As newdata is missing or is not a data frame, the training set has been used thanks to the keep.data = TRUE parameter.</code></pre>
-<pre><code>##  [1] -1.877675 -2.013065 -1.912127 -1.891241 -1.844825 -1.867253 -2.096570
-##  [8] -1.993146 -2.056822 -2.284128</code></pre>
+<pre><code>## OOB generally underestimates the optimal number of iterations although predictive performance is reasonably competitive.
+##             Using cv_folds&gt;1 when calling BT usually results in improved predictive performance.</code></pre>
+<pre><code>##            [,1]      [,2]
+##  [1,] -2.036076 -2.073071
+##  [2,] -1.795237 -1.778898
+##  [3,] -1.791303 -1.765213
+##  [4,] -1.723679 -1.685962
+##  [5,] -2.030221 -2.062991
+##  [6,] -2.030771 -2.066194
+##  [7,] -2.030035 -2.058636
+##  [8,] -1.900488 -1.881005
+##  [9,] -2.006163 -2.020618
+## [10,] -1.995247 -2.015617</code></pre>
+<div class="sourceCode" id="cb90"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb90-1"><a href="#cb90-1" tabindex="-1"></a><span class="fu">head</span>(<span class="fu">predict</span>(btOpt, <span class="at">n.iter =</span> <span class="fu">c</span>(<span class="fu">BT_perf</span>(btOpt, <span class="at">method =</span> <span class="st">&quot;OOB&quot;</span>, <span class="at">plot.it =</span> <span class="cn">FALSE</span>), perfbtOpt_cv),</span>
+<span id="cb90-2"><a href="#cb90-2" tabindex="-1"></a>    <span class="at">type =</span> <span class="st">&quot;response&quot;</span>), <span class="dv">10</span>)</span></code></pre></div>
+<pre><code>## As newdata is missing or is not a data frame, the training set has been used thanks to the keep.data = TRUE parameter.
+## OOB generally underestimates the optimal number of iterations although predictive performance is reasonably competitive.
+##             Using cv_folds&gt;1 when calling BT usually results in improved predictive performance.</code></pre>
+<pre><code>##            [,1]      [,2]
+##  [1,] 0.1305400 0.1257988
+##  [2,] 0.1660881 0.1688241
+##  [3,] 0.1667428 0.1711503
+##  [4,] 0.1784085 0.1852661
+##  [5,] 0.1313065 0.1270734
+##  [6,] 0.1312343 0.1266669
+##  [7,] 0.1313309 0.1276280
+##  [8,] 0.1494957 0.1524368
+##  [9,] 0.1345038 0.1325735
+## [10,] 0.1359800 0.1332382</code></pre>
+<ul>
+<li>Prediction (on the response scale) using only the 40th weak learner
+(tree).</li>
+</ul>
+<div class="sourceCode" id="cb93"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb93-1"><a href="#cb93-1" tabindex="-1"></a><span class="fu">head</span>(<span class="fu">predict</span>(btOpt, <span class="at">n.iter =</span> <span class="dv">40</span>, <span class="at">type =</span> <span class="st">&quot;response&quot;</span>, <span class="at">single.iter =</span> <span class="cn">TRUE</span>), <span class="dv">10</span>)</span></code></pre></div>
+<pre><code>## As newdata is missing or is not a data frame, the training set has been used thanks to the keep.data = TRUE parameter.</code></pre>
+<pre><code>##  [1] 0.9192015 0.9192015 0.9192015 1.2280911 0.9192015 0.9192015 0.9192015
+##  [8] 1.0333582 1.0333582 0.9192015</code></pre>
 </div>
 </div>
-<div id="comparison-between-adaptive-boosting-tree-and-boosting-tree" class="section level2">
-<h2>Comparison between Adaptive Boosting Tree and Boosting Tree</h2>
-<p>In our first example, we decided to fit a Boosting Tree approach.
-However, one can be interested in fitting an Adaptive Boosting Tree one.
-We note that the cross-validation is relevant for the former case while
-it might not be needed for the later one. In fact, by construction the
-Adaptive Boosting Tree will naturally ends up to root node, which will
-not bring more information. This is then a natural stopping
-criterion.</p>
-<p>This task can easily be achieved taking the same example as before
-and setting <code>ABT</code> to <code>TRUE</code> instead of
-<code>FALSE</code>. It is then left to the interested reader.</p>
+<div id="adaptive-boosting-tree-abt" class="section level2">
+<h2>Adaptive Boosting Tree (ABT)</h2>
+<p>All the functions available on the classical Boosting Tree side are
+also available in the Adaptive Boosting Tree context. The only
+difference lies in the way the number of internal nodes is defined. For
+a given <code>interaction.depth</code>, ABT will in fact look for the
+biggest optimal tree having at most <code>interaction.depth</code>
+internal nodes (i.e. the built weak learner). This idea is basically
+based on the <code>rpart</code> complexity parameter. Differently said,
+all the trees in the expansion won’t necessarily contain
+<code>interaction.depth</code> internal nodes.</p>
+<p>By construction, it’s interesting to note that the built trees will
+converge to a single root node. This can therefore acts as a natural
+stopping criteria helping to reduce the computation time. However, this
+option is not implemented in the <code>BT</code> package. Moreover, this
+behavior is not necessarily observed when random effects (e.g. bag
+fraction) are used.</p>
+<div id="hyperparameter-optimization-1" class="section level3">
+<h3>Hyperparameter Optimization</h3>
+<p>As we did in the BT side, we’ll test two parameters combination and
+assess their performances via cross-validation. Precisely, values 2 and
+3 will be tried out for the <code>interaction.depth</code> parameter.
+Let’s start by defining the parameters grid thanks to the
+<code>base::expand.grid</code> function. Once again, we acknowledge that
+it corresponds to a small representation of real-world problems.</p>
+<div class="sourceCode" id="cb96"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb96-1"><a href="#cb96-1" tabindex="-1"></a>nIterVec <span class="ot">&lt;-</span> <span class="dv">225</span></span>
+<span id="cb96-2"><a href="#cb96-2" tabindex="-1"></a>interactionDepthVec <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">3</span>)</span>
+<span id="cb96-3"><a href="#cb96-3" tabindex="-1"></a>shrinkageVec <span class="ot">&lt;-</span> <span class="fl">0.01</span></span>
+<span id="cb96-4"><a href="#cb96-4" tabindex="-1"></a>bagFractionVec <span class="ot">&lt;-</span> <span class="fl">0.5</span></span>
+<span id="cb96-5"><a href="#cb96-5" tabindex="-1"></a></span>
+<span id="cb96-6"><a href="#cb96-6" tabindex="-1"></a>gridSearch <span class="ot">&lt;-</span> <span class="fu">expand.grid</span>(<span class="at">n.iter =</span> nIterVec, <span class="at">interaction.depth =</span> interactionDepthVec,</span>
+<span id="cb96-7"><a href="#cb96-7" tabindex="-1"></a>    <span class="at">shrinkage =</span> shrinkageVec, <span class="at">bag.fraction =</span> bagFractionVec)</span>
+<span id="cb96-8"><a href="#cb96-8" tabindex="-1"></a>gridSearch</span></code></pre></div>
+<pre><code>##   n.iter interaction.depth shrinkage bag.fraction
+## 1    225                 2      0.01          0.5
+## 2    225                 3      0.01          0.5</code></pre>
+<p>We can now loop through all the different scenarios.</p>
+<div class="sourceCode" id="cb98"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb98-1"><a href="#cb98-1" tabindex="-1"></a>abtRes_cv <span class="ot">&lt;-</span> <span class="fu">list</span>()</span>
+<span id="cb98-2"><a href="#cb98-2" tabindex="-1"></a><span class="cf">for</span> (iGrid <span class="cf">in</span> <span class="fu">seq</span>(<span class="dv">1</span>, <span class="fu">nrow</span>(gridSearch))) {</span>
+<span id="cb98-3"><a href="#cb98-3" tabindex="-1"></a>    currABT <span class="ot">&lt;-</span> <span class="fu">BT</span>(<span class="at">formula =</span> formFreq, <span class="at">data =</span> trainSet, <span class="at">tweedie.power =</span> <span class="dv">1</span>, <span class="at">ABT =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb98-4"><a href="#cb98-4" tabindex="-1"></a>        <span class="at">n.iter =</span> gridSearch[iGrid, <span class="st">&quot;n.iter&quot;</span>], <span class="at">train.fraction =</span> <span class="dv">1</span>, <span class="at">interaction.depth =</span> gridSearch[iGrid,</span>
+<span id="cb98-5"><a href="#cb98-5" tabindex="-1"></a>            <span class="st">&quot;interaction.depth&quot;</span>], <span class="at">shrinkage =</span> gridSearch[iGrid, <span class="st">&quot;shrinkage&quot;</span>], <span class="at">bag.fraction =</span> gridSearch[iGrid,</span>
+<span id="cb98-6"><a href="#cb98-6" tabindex="-1"></a>            <span class="st">&quot;bag.fraction&quot;</span>], <span class="at">colsample.bytree =</span> <span class="cn">NULL</span>, <span class="at">keep.data =</span> <span class="cn">FALSE</span>, <span class="at">is.verbose =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb98-7"><a href="#cb98-7" tabindex="-1"></a>        <span class="at">cv.folds =</span> <span class="dv">3</span>, <span class="at">folds.id =</span> <span class="cn">NULL</span>, <span class="at">n.cores =</span> <span class="dv">1</span>, <span class="at">weights =</span> ExpoR, <span class="at">seed =</span> <span class="dv">4</span>)</span>
+<span id="cb98-8"><a href="#cb98-8" tabindex="-1"></a></span>
+<span id="cb98-9"><a href="#cb98-9" tabindex="-1"></a>    abtRes_cv[[iGrid]] <span class="ot">&lt;-</span> currABT</span>
+<span id="cb98-10"><a href="#cb98-10" tabindex="-1"></a>}</span></code></pre></div>
+<p>Check that we’ve enough iterations and define the best ABT model.</p>
+<div class="sourceCode" id="cb99"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb99-1"><a href="#cb99-1" tabindex="-1"></a>perfabt1_cv <span class="ot">&lt;-</span> <span class="fu">BT_perf</span>(abtRes_cv[[<span class="dv">1</span>]], <span class="at">method =</span> <span class="st">&quot;cv&quot;</span>, <span class="at">plot.it =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<p><img src="data:image/png;base64,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" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb100"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb100-1"><a href="#cb100-1" tabindex="-1"></a>perfabt2_cv <span class="ot">&lt;-</span> <span class="fu">BT_perf</span>(abtRes_cv[[<span class="dv">2</span>]], <span class="at">method =</span> <span class="st">&quot;cv&quot;</span>, <span class="at">plot.it =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASAAAAEgCAMAAAAjXV6yAAAAaVBMVEUAAAAAADoAAGYAAP8AOpAAZrYA/wA6AAA6ADo6AGY6Ojo6OpA6ZmY6kNtmAABmADpmAGZmtrZmtv+QOgCQkGaQtpCQ2/+2ZgC225C2///bkDrb2//b/7bb////tmb/25D//7b//9v////lsAMhAAAACXBIWXMAAA7DAAAOwwHHb6hkAAALKklEQVR4nO2dDZujJheGz+58tX3fZNuZdtJNO5kM//9HVgQUFHhAEY05d6/tZoOi3hceCCCSYKLQ2iewdVgQgAUBWBCABQFYEIAFAVgQgAUBWBCABQFYEIAFAVgQgAUBWBCABQFYEIAFAVgQgAUBWBCABQFYEIAFAVgQgAUBWBCABQFYEIAFAXpBF1K8rng2G0QLuh7pSX36eqPvP9c7n82hBF1/t524/7pzOAYBWBCABQFYEEAH6SN1cB3moEvQ1xt78WNusa+3p1XPY7N0MejCTWgvHKQBLAjAggC9oM+XV3F6/FjxXDYJCwKwIAALArAgAAsCsCAAt4MAnaCvt8Oa57FZOkHXI/9Y9WGNi3GPkA+rBHGPog8O0gAWBLAENTfZ48eJ6zIXK0h/ez8/flyPbMjBaQc1gsSZg7SD0w6Sgri2dxmVIP455jKMQWce/XFxazGib+/rncsm4XYQgAUB7N9iPDrvoS9B+tcqByGX4S12PXI7yMERJAsRlyAXu9Oe+4I8WEGa7fiwbrGmCHE9NsIN0md+VGMI12KAXtCpRKc9bYD5UpwrMh+aKr5ADb+BXy5LCdpkdhs4BbcWm91O3LOgC8nu+pkdZpUF+Q63lCAzeeE8q8t1x4LM5IV5nfY7FsQlCB3iBmPQw8Pyp3DTtVhlQRvMDsCCAJUFtZ3SM8dV9yzo0oaf86QgtNQvRUBVQV9vqvqaNza/Y0HXH6ro3FJDcZUSdEsNxcoxqG0ixhuKX28q0gRLGQ3+Xpi6v8X6SBu6/jPp+XkXCkzUswVVkFT1pwbGelohdCPetyDraYVQKN+roLQFluaXoMyTh5vXK0FpS3R1EXxqDLpdQSJtkTcTyYNNgT0LKpodFpRyYAI73PCveZK/z6JHCx2YnM+3Jeh6hK3sVEG0U0H/fwFPcty7oENTkUWnyNQURJsU1NZ2YUek/79LQfB5se5RqUvw51oNQdT9qd6jCJ4XS3iWbI4gcjcZbrW2oITnxSYJonGyCAqiDQsq87zYNEHdlpmCvDKWLkEl+qSNIOtSBkcbCaKhIBpuFRDkid1FGcaghKHnS2T8tc2OHEFURhCtLijlebET0eHzfx+jdSzcYZ9WDYkEQdR9PRREGxSEkbffSQ2fxfqDooKsmzBFUL+rk8k2BbXl5vMXKSjao4gFUYYg+4tu67GgcSktg5WdLB/BnjCJqua//hGzS1BMkC5i+YL6zErSZ6eqr+sx8lurayMFW0RxQZQriOKCZDuomqCkKXh65D68MO4sQf1OWxTUTcEr1FBME2S2DwkS2xGke+Q/UY9PSnb6upQPEs5Vkx1asgRZ4XgVQVlT8ELlzCtINxwdQTRDEJnUyoLKZceCQHYpgtS/kwRpl2sLgjM30rMLC6IJgsgviGoLOiWYSZz+oq9qX4JSlp5Knf5SS5DThFheEOznSJ68kC2IZgqiLjAtJyjhxRrJ0188gmhZQbS8oIQXa0wsQbQPQSkrcSZOf3nuBVEniPyC9PWlCjLfegTRwoKSSJz+8ixJF0QlBIlNCErMTp7ts2IoiBYQRHUEmdJRpqGob7Fn48kjiPIFmc11ZrodVEnQ6fHj/NQu3D47OycGtRf0bAEFaTcbEyQbihc5sjplXIw6dKZDQeaLgStHW5og6nOvLehVfP76s/0zN7uoIM8tJv8LeIvy8DC0LJYTJBs58oGWhQQZHx5BVrFwS1C/rcrT2lR935YgqlSC2j6w06HIwywDQSImyFT8YUHCFmQp7QWZzAZXVAQru9OTrMnmrY7jFySgIMoTpD8pQVRLULns/ILIL4h6QRQSRCFBdKOCrLsqIKi/TwKCzFY5gmixKyqcHXUXOV9Q58YjyNptYUFNI6jMayPKCKIUQaKmoMLZaUEiTZAYCOrjFAsqJkgsLyg6ayEzuyRBwjR+RLKgPtER1CUvW4LkKnizl3mbLkhfvAlIJpNu+17KWoKEfmRsVkEi85clSGQKEj5B5vuh8rqCxOzXhocFiRRBgryCrO8dQbodJEQtQUuWIFeQ2eiGBLWDpoVikCWo/7q/xzorwhHUiRCWILEZQSVrsbgg8gkSmxdUNDskqEsMCKK4ILGOoBKvz8oVJG5IUJHXZw0FWV93VflyggZXVAQrSJd4fVaOIOETpBIigsRagko+DhUSJDIF6Y2AoO6IdUrQpMehBtGllqD+pqwgqMzrs1YUJJYWVOT1WRMFCUuTGAvqPK4rCNI9Fg6X6AoKEksJ6o+2tqB23Cw4Xy8qqP1kXVNckBgLEj5Bw4MvIihlATMlSKsBCyyRGP89XZBYX5BEzRq7RIKQFKRnf4AluvYoyEzijAw9b6wECdUOGh58KUEJz4upG/FJoAfqxoLazymCzKYbFGSmsMYbiur1JOEHNyOCRFFB7T+qCjIrcc5rCM0SJFxBwpci1hNUcj3pgoJGGa4nCJLTUPTkniModJojQTTaaG1BiQ3FUO6my9Skku+qbllQXjXv2WDvgvIair4tdi5obgkaCfLtkCpoEM03ICi3oRjYYiFB8NhTcKt5OKqR2VAMbIEEjfcPVItVBZUd1YhuUU6Qr55MOc90uuwKj2pEtygmyNuQSDjNDLrs0kc14BJdqYLCO2xRUNKoRtoSXRMEhc5q+EUwAeU4mWEMio5qJC7RlXjAyA6Jgh4eagrCoxqpS3SlHjBjo00IgqQu0VXsgIitCUpdoqvcAQGbE5S4RFc16q3lWvhRhFpsbcHt+tkBNiwovkRXLWreYikjqynZVUX2B40pI6a7ou4THlnNzzM9pXxSIayfGnBkNTvPjJTtC0paiTNtnbN9CkoZWcVLdLl5ZqRsX1DCyGrCAkuDPNNTbkAQHllNWKJrmGdyyi0Igtx7CcLgJbpAnrctKGFUAy7RNcwzOeUGBBUZ1dgfoz7peaMa+2PCqMZ9kTeqcYdkjWrcIzmjGndJ3R6uG4QFAfIaincINxQB3FAEcEMRwA1FQPGGond6VT/9Mzb7ykWtmTplz6KUbijKYaPx0JGaMxNM9nE9tvf6hD3LUrgdpDodT8OFZExgCyR7MG9Lzt+zMIUFqYn4o5rw/BRNHnOhg1KTvWdprFps3tpTisD8s9Nvzd17QNPTXNRWU/YsSl+CdHfqvNtcRYlhrLgeZdXYNNL9yYGspIxJexZleIvp2DiV2HU0V5wtaNKeRXEEyUI07xRid0ITRvJvsSl7FqUXJN/gN/v4sVjaXGNOqLUF5e1ZFCtIlzi4vzZWV9dccU5l3QqatGdRrFusKULzj+9vz7UXJntSMpp7uhabsGdR3CB9ptld0mdvGJMLxb6Gk33oW2zCnkUpXIvtj17QiVImR90ddkuaRzQ8cKc9wEwD5uHCACwIwIIALAhQ+FGE/cElCMCCACwIwIIA3JIGsCAACwKwIAALArAgAAsCsCAACwKwIAALArAgAAsCsCDAGoLaeQjh/pUmaUPdLysJihjYkBwJCwKsI+ivl/bZ+7OawXr98accS1ETXeREt8d/W0kXnXz84zh/Ws5U1ixBciGVz5eDmcr6pL6RSW2yXG1Fvtz0emy+nfk6i+msKEi/ZOH7z/bD9ce7mnFnBKlJd+22BzMXbwVWFKQm1DVX3kWdC1EvSCkxyatFpjUF6aFcLagJSN//fhkKaj7dryATVtQiui+v7i3GJai7ZhWS5ZyAC3lj0F0KOujlwE7agCo8dOhfTtHXYncoqGn06HZQU3C6GPTt/aSSBu2gexN0U7AgAAsCsCAACwKwIAALArAgAAsCsCAACwKwIAALArAgAAsCsCAACwKwIAALArAgAAsCsCAACwKwIMB/ty1LuKZ0/gIAAAAASUVORK5CYII=" style="display: block; margin: auto;" /></p>
+<p>We can finally define the best ABT model.</p>
+<div class="sourceCode" id="cb101"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb101-1"><a href="#cb101-1" tabindex="-1"></a>indexMin <span class="ot">&lt;-</span> <span class="fu">which.min</span>(<span class="fu">c</span>(<span class="fu">min</span>(abtRes_cv[[<span class="dv">1</span>]]<span class="sc">$</span>BTErrors<span class="sc">$</span>cv.error), <span class="fu">min</span>(abtRes_cv[[<span class="dv">2</span>]]<span class="sc">$</span>BTErrors<span class="sc">$</span>cv.error)))</span>
+<span id="cb101-2"><a href="#cb101-2" tabindex="-1"></a>abtOpt <span class="ot">&lt;-</span> <span class="cf">if</span> (indexMin <span class="sc">==</span> <span class="dv">1</span>) abtRes_cv[[<span class="dv">1</span>]] <span class="cf">else</span> abtRes_cv[[<span class="dv">2</span>]]</span>
+<span id="cb101-3"><a href="#cb101-3" tabindex="-1"></a>perfabtOpt_cv <span class="ot">&lt;-</span> <span class="cf">if</span> (indexMin <span class="sc">==</span> <span class="dv">1</span>) perfabt1_cv <span class="cf">else</span> perfabt2_cv</span>
+<span id="cb101-4"><a href="#cb101-4" tabindex="-1"></a></span>
+<span id="cb101-5"><a href="#cb101-5" tabindex="-1"></a>abtOpt</span></code></pre></div>
+<pre><code>## BT(formula = formFreq, data = trainSet, tweedie.power = 1, ABT = TRUE, 
+##     n.iter = gridSearch[iGrid, &quot;n.iter&quot;], train.fraction = 1, 
+##     interaction.depth = gridSearch[iGrid, &quot;interaction.depth&quot;], 
+##     shrinkage = gridSearch[iGrid, &quot;shrinkage&quot;], bag.fraction = gridSearch[iGrid, 
+##         &quot;bag.fraction&quot;], colsample.bytree = NULL, keep.data = FALSE, 
+##     is.verbose = FALSE, cv.folds = 3, folds.id = NULL, n.cores = 1, 
+##     weights = ExpoR, seed = 4)
+## An adaptive boosting tree model with Tweedie parameter : 1  has been fitted.
+##  225 iterations were performed.</code></pre>
+<pre><code>## OOB generally underestimates the optimal number of iterations although predictive performance is reasonably competitive.
+##             Using cv_folds&gt;1 when calling BT usually results in improved predictive performance.</code></pre>
+<pre><code>## The best out-of-bag iteration was 113.
+## The best cross-validation iteration was 199.
+## There were 4 predictors of which 4 had non-zero influence.</code></pre>
+<div class="sourceCode" id="cb105"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb105-1"><a href="#cb105-1" tabindex="-1"></a>abtOpt<span class="sc">$</span>BTParams<span class="sc">$</span>interaction.depth</span></code></pre></div>
+<pre><code>## [1] 2</code></pre>
+<div class="sourceCode" id="cb107"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb107-1"><a href="#cb107-1" tabindex="-1"></a>perfabtOpt_cv</span></code></pre></div>
+<pre><code>## [1] 199</code></pre>
+</div>
+</div>
+<div id="miscellaneous" class="section level2">
+<h2>Miscellaneous</h2>
+<p>Let’s have a look at the resulting weak learners (trees) from BT and
+ABT expansions.</p>
+<p>In the BT case, all the trees contain exactly
+<code>interaction.depth</code> internal nodes (or splits) whereas in the
+ABT case one can notice the variation in number of internal nodes (and
+so the trees’ shapes).</p>
+<div class="sourceCode" id="cb109"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb109-1"><a href="#cb109-1" tabindex="-1"></a><span class="fu">table</span>(<span class="fu">sapply</span>(<span class="fu">seq</span>(<span class="dv">1</span>, perfbtOpt_cv), <span class="cf">function</span>(xx) {</span>
+<span id="cb109-2"><a href="#cb109-2" tabindex="-1"></a>    <span class="fu">nrow</span>(btOpt<span class="sc">$</span>BTIndivFits[[xx]]<span class="sc">$</span>frame[btOpt<span class="sc">$</span>BTIndivFits[[xx]]<span class="sc">$</span>frame<span class="sc">$</span>var <span class="sc">!=</span> <span class="st">&quot;&lt;leaf&gt;&quot;</span>,</span>
+<span id="cb109-3"><a href="#cb109-3" tabindex="-1"></a>        ])</span>
+<span id="cb109-4"><a href="#cb109-4" tabindex="-1"></a>}))</span></code></pre></div>
+<pre><code>## 
+##   2 
+## 199</code></pre>
+<div class="sourceCode" id="cb111"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb111-1"><a href="#cb111-1" tabindex="-1"></a><span class="fu">table</span>(<span class="fu">sapply</span>(<span class="fu">seq</span>(<span class="dv">1</span>, perfabtOpt_cv), <span class="cf">function</span>(xx) {</span>
+<span id="cb111-2"><a href="#cb111-2" tabindex="-1"></a>    <span class="fu">nrow</span>(abtOpt<span class="sc">$</span>BTIndivFits[[xx]]<span class="sc">$</span>frame[abtOpt<span class="sc">$</span>BTIndivFits[[xx]]<span class="sc">$</span>frame<span class="sc">$</span>var <span class="sc">!=</span> <span class="st">&quot;&lt;leaf&gt;&quot;</span>,</span>
+<span id="cb111-3"><a href="#cb111-3" tabindex="-1"></a>        ])</span>
+<span id="cb111-4"><a href="#cb111-4" tabindex="-1"></a>}))</span></code></pre></div>
+<pre><code>## 
+##   0   2 
+##   4 195</code></pre>
+</div>
+<div id="models-comparison" class="section level2">
+<h2>Models comparison</h2>
+<p>Once the optimal competing models have been defined, one can assess
+their generalization performances (i.e. on the test set). To do so,
+multiple criteria might be used, such as deviance, lift curves,
+concordance measures, …</p>
+<p>Only the first criterion will be investigated for this
+presentation.</p>
+<p><strong>Please note that usually only 1 model is retained beforehand
+- The test set is not used for model selection. Our specific example
+remains a case-study!</strong></p>
+<p>Let’s start by computing the different model predictions on the test
+set.</p>
+<div class="sourceCode" id="cb113"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb113-1"><a href="#cb113-1" tabindex="-1"></a>btPredTest <span class="ot">&lt;-</span> <span class="fu">predict</span>(btOpt, <span class="at">newdata =</span> testSet, <span class="at">n.iter =</span> perfbtOpt_cv, <span class="at">type =</span> <span class="st">&quot;response&quot;</span>) <span class="sc">*</span></span>
+<span id="cb113-2"><a href="#cb113-2" tabindex="-1"></a>    testSet<span class="sc">$</span>ExpoR</span>
+<span id="cb113-3"><a href="#cb113-3" tabindex="-1"></a>abtPredTest <span class="ot">&lt;-</span> <span class="fu">predict</span>(abtOpt, <span class="at">newdata =</span> testSet, <span class="at">n.iter =</span> perfabtOpt_cv, <span class="at">type =</span> <span class="st">&quot;response&quot;</span>) <span class="sc">*</span></span>
+<span id="cb113-4"><a href="#cb113-4" tabindex="-1"></a>    testSet<span class="sc">$</span>ExpoR</span></code></pre></div>
+<div id="deviance" class="section level3">
+<h3>Deviance</h3>
+<p>The deviance is defined as 2 times the log-likelihood ratio of the
+saturated model compared to the reduced (fitted) one. In other words, it
+measures the gap between the optimal model and the current one.</p>
+<div class="sourceCode" id="cb114"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb114-1"><a href="#cb114-1" tabindex="-1"></a>devPoisson <span class="ot">&lt;-</span> <span class="cf">function</span>(obs, pred) {</span>
+<span id="cb114-2"><a href="#cb114-2" tabindex="-1"></a>    <span class="dv">2</span> <span class="sc">*</span> (<span class="fu">sum</span>(<span class="fu">dpois</span>(<span class="at">x =</span> obs, <span class="at">lambda =</span> obs, <span class="at">log =</span> <span class="cn">TRUE</span>)) <span class="sc">-</span> <span class="fu">sum</span>(<span class="fu">dpois</span>(<span class="at">x =</span> obs, <span class="at">lambda =</span> pred,</span>
+<span id="cb114-3"><a href="#cb114-3" tabindex="-1"></a>        <span class="at">log =</span> <span class="cn">TRUE</span>)))</span>
+<span id="cb114-4"><a href="#cb114-4" tabindex="-1"></a>}</span></code></pre></div>
+<p>One can now assess the deviance of the different models.</p>
+<div class="sourceCode" id="cb115"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb115-1"><a href="#cb115-1" tabindex="-1"></a><span class="fu">devPoisson</span>(testSet<span class="sc">$</span>Y, btPredTest)</span></code></pre></div>
+<pre><code>## [1] 3618.013</code></pre>
+<div class="sourceCode" id="cb117"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb117-1"><a href="#cb117-1" tabindex="-1"></a><span class="fu">devPoisson</span>(testSet<span class="sc">$</span>Y, abtPredTest)</span></code></pre></div>
+<pre><code>## [1] 3618.06</code></pre>
+<p>For this simulated use-case, it therefore seems that the usual
+boosting tree approach performs better.</p>
+</div>
 </div>
 </div>
 

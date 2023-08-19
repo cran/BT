@@ -1,6 +1,6 @@
 #' (Adaptive) Boosting Trees (ABT/BT) Algorithm.
 #'
-#' Perform the (Adaptive) Boosting Trees algorithm. This prepare the inputs and call the function \code{\link{BT_call}}.
+#' Performs the (Adaptive) Boosting Trees algorithm. This code prepares the inputs and calls the function \code{\link{BT_call}}.
 #' Each tree in the process is built thanks to the \code{\link{rpart}} function.
 #' In case of cross-validation, this function prepares the folds and performs multiple calls to the fitting function \code{\link{BT_call}}.
 #'
@@ -15,8 +15,8 @@
 #' @param ABT a boolean parameter. If \code{ABT=TRUE} an adaptive boosting tree algorithm is built whereas if \code{ABT=FALSE} an usual boosting tree algorithm is run.
 #' By default, it is set to \code{TRUE}.
 #'
-#' @param n.iter the total number of iterations to fit. This is equivalent to the number of trees and the number of basis function in the additive expansion.
-#' Please note that the initialization is not taken into account in the \code{n.iter}. More explicitly, a first GLM initializes the algorithm and then \code{n.iter} trees
+#' @param n.iter the total number of iterations to fit. This is equivalent to the number of trees and the number of basis functions in the additive expansion.
+#' Please note that the initialization is not taken into account in the \code{n.iter}. More explicitly, a weighted average initializes the algorithm and then \code{n.iter} trees
 #' are built. Moreover, note that the \code{bag.fraction}, \code{colsample.bytree}, ... are not used for this initializing phase.
 #' By default, it is set to 100.
 #'
@@ -33,7 +33,6 @@
 #'
 #' @param bag.fraction the fraction of independent training observations randomly selected to propose the next tree in the expansion.
 #' This introduces randomness into the model fit. If \code{bag.fraction}<1 then running the same model twice will result in similar but different fits.
-#' \code{BT} uses the R random number generator, so \code{set.seed} ensures the same model can be reconstructed.
 #' Please note that if this parameter is used the \code{BTErrors$training.error} corresponds to the normalized in-bag error and the out-of-bag improvements
 #' are computed and stored in \code{BTErrors$oob.improvement}. See \code{\link{BTFit}} for more details.
 #' By default, it is set to 1.
@@ -42,9 +41,9 @@
 #' random subset of features from the formula, adding variability to the algorithm and reducing computation time. \code{colsample.bytree} will be bounded between
 #' 1 and the number of features considered in the formula. By default, it is set to \code{NULL} meaning no effect.
 #'
-#' @param keep.data a boolean variable indicating whether to keep the data frames or not. This is particularly useful if one wants to keep track of the initial data frames
+#' @param keep.data a boolean variable indicating whether to keep the data frames. This is particularly useful if one wants to keep track of the initial data frames
 #' and is further used for predicting in case any data frame is specified.
-#' Note that in case of cross-validation, if \code{keep.data=TRUE} the initial data frames is saved whereas the cross-validation samples are not.
+#' Note that in case of cross-validation, if \code{keep.data=TRUE} the initial data frames are saved whereas the cross-validation samples are not.
 #' By default, it is set to \code{FALSE}.
 #'
 #' @param is.verbose if \code{is.verbose=TRUE}, the \code{BT} will print out the algorithm progress. By default, it is set to \code{FALSE}.
@@ -56,12 +55,13 @@
 #' By default, \code{folds.id = NULL} meaning that no folds are defined.
 #'
 #' @param n.cores the number of cores to use for parallelization. This parameter is used during the cross-validation.
-#' By default, it is set to 1.
+#' This parameter is bounded between 1 and the maximum number of available cores.
+#' By default, it is set to 1 leading to a sequential approach.
 #'
 #' @param tree.control for advanced user only. It allows to define additional tree parameters that will be used at each iteration.
 #' See \code{\link{rpart.control}} for more information.
 #'
-#' @param weights optional vector of weights used in the fitting process. These weights must be positive but does not need to be normalized.
+#' @param weights optional vector of weights used in the fitting process. These weights must be positive but do not need to be normalized.
 #' By default, it is set to \code{NULL} which corresponds to an uniform weight of 1 for each observation.
 #'
 #' @param seed optional number used as seed. Please note that if \code{cv.folds}>1, the \code{parLapply} function is called.
@@ -78,7 +78,7 @@
 #' \emph{This package is inspired by the \code{gbm3} package. For more details, see \url{https://github.com/gbm-developers/gbm3/}}.
 #'
 #' @seealso \code{\link{BTFit}}, \code{\link{BTCVFit}}, \code{\link{BT_call}}, \code{\link{BT_perf}}, \code{\link{predict.BTFit}},
-#' \code{\link{summary.BTFit}}, \code{\link{print.BTFit}}, \code{\link{BT_cv_errors}}.
+#' \code{\link{summary.BTFit}}, \code{\link{print.BTFit}}, \code{\link{.BT_cv_errors}}.
 #'
 #' @references M. Denuit, D. Hainaut and J. Trufin (2019). \strong{Effective Statistical Learning Methods for Actuaries |: GLMs and Extensions}, \emph{Springer Actuarial}.
 #'
@@ -96,28 +96,11 @@
 #'
 #' @examples
 #' \donttest{
-#' ## Create some dataset.
-#' set.seed(4)
-#' n <- 10000
-#'
-#' Gender <- factor(sample(c("male","female"), n, replace=TRUE))
-#' Age <- sample(c(18:65), n, replace=TRUE)
-#' Split <- factor(sample(c("yes","no"), n, replace=TRUE))
-#' Sport <- factor(sample(c("yes","no"), n, replace=TRUE))
-#'
-#' lambda <- 0.1*ifelse(Gender=="male", 1.1, 1)
-#' lambda <- lambda*(1+1/(Age-17)^0.5)
-#' lambda <- lambda*ifelse(Sport=="yes", 1.15, 1)
-#'
-#' ExpoR <- runif(n)
-#'
-#' Y <- rpois(n, ExpoR*lambda)
-#' Y_normalized <- Y/ExpoR
-#'
-#' dataset <- data.frame(Y,Gender,Age,Split,Sport,ExpoR, Y_normalized)
+#' ## Load dataset.
+#' dataset <- BT::BT_Simulated_Data
 #'
 #' ## Fit a Boosting Tree model.
-#' BT_algo <- BT(formula = as.formula("Y_normalized ~ Age + Sport + Split + Gender"), # formula
+#' BT_algo <- BT(formula = Y_normalized ~ Age + Sport + Split + Gender, # formula
 #'               data = dataset, # data
 #'               ABT = FALSE, # Classical Boosting Tree
 #'               n.iter = 200,
@@ -161,113 +144,244 @@
 #'
 #' @export
 #'
-BT <- function(formula = formula(data), data=list(), tweedie.power = 1, ABT = TRUE, n.iter = 100,
-               train.fraction = 1, interaction.depth = 4, shrinkage = 1, bag.fraction = 1,
-               colsample.bytree = NULL, keep.data = TRUE, is.verbose = FALSE,
-               cv.folds = 1, folds.id = NULL, n.cores = 1,
-               tree.control = rpart.control(xval = 0, maxdepth = (if(!is.null(interaction.depth)){interaction.depth} else{10}), cp = -Inf, minsplit = 2),
-               weights = NULL, seed = NULL, ...){
+BT <-
+  function(formula = formula(data),
+           data = list(),
+           tweedie.power = 1,
+           ABT = TRUE,
+           n.iter = 100,
+           train.fraction = 1,
+           interaction.depth = 4,
+           shrinkage = 1,
+           bag.fraction = 1,
+           colsample.bytree = NULL,
+           keep.data = TRUE,
+           is.verbose = FALSE,
+           cv.folds = 1,
+           folds.id = NULL,
+           n.cores = 1,
+           tree.control = rpart.control(
+             xval = 0,
+             maxdepth = (if (!is.null(interaction.depth)) {
+               interaction.depth
+             } else{
+               10
+             }),
+             cp = -Inf,
+             minsplit = 2
+           ),
+           weights = NULL,
+           seed = NULL,
+           ...) {
+    if (!is.null(seed))
+      set.seed(seed)
 
-  if (!is.null(seed)) set.seed(seed)
+    the_call <- match.call()
+    mf <- match.call(expand.dots = FALSE)
+    m <- match(c("formula", "data", "weights"), names(mf), 0)
+    mf <- mf[c(1, m)]
+    mf$drop.unused.levels <- TRUE
+    mf$na.action <-
+      na.omit #na.pass : Need to be reset to na.pass once NA well handled.
+    mf[[1]] <- as.name("model.frame")
+    m <- mf
+    mf <- eval(mf, parent.frame())
+    Terms <- attr(mf, "terms")
+    respVar <-
+      as.character(attr(Terms, "variables"))[-1][attr(Terms, "response")]
+    explVar <- attr(Terms, "term.labels")
+    #mf$originalRespVar <- mf[,respVar] # Keep the original variable -> Do not need to modify the formula that way.
+    #originalFormula <- formula # Keep a track of the original formula if there's any change with variable subsampling.
 
-  the_call <- match.call()
-  mf <- match.call(expand.dots = FALSE)
-  m <- match(c("formula", "data", "weights"), names(mf), 0)
-  mf <- mf[c(1, m)]
-  mf$drop.unused.levels <- TRUE
-  mf$na.action <- na.omit #na.pass : Need to be reset to na.pass once NA well handled.
-  mf[[1]] <- as.name("model.frame")
-  m <- mf
-  mf <- eval(mf, parent.frame())
-  Terms <- attr(mf, "terms")
-  respVar <- as.character(attr(Terms, "variables"))[-1][attr(Terms, "response")] ; explVar <- attr(Terms, "term.labels")
-  #mf$originalRespVar <- mf[,respVar] # Keep the original variable -> Do not need to modify the formula that way.
-  #originalFormula <- formula # Keep a track of the original formula if there's any change with variable subsampling.
+    if (!is.null(attr(Terms, "offset"))) {
+      stop(
+        "Offset are not supported. For Tweedie model with log-link function, weights (=offset)
+         and response rate variable (=Original response variable/Offset) can instead be used."
+      )
+    }
 
-  if(!is.null(attr(Terms, "offset"))){
-    stop("Offset are not supported. For Tweedie model with log-link function, weights (=offset)
-         and response rate variable (=Original response variable/Offset) can instead be used.")
-  }
+    if (is.null(model.weights(mf))) {
+      mf$w <- rep(1, nrow(mf))
+    }
+    else{
+      colnames(mf)[names(mf) == "(weights)"] <- "w"
+    }
+    w <- "w"
 
-  if (is.null(model.weights(mf))){mf$w <- rep(1, nrow(mf))}
-  else{colnames(mf)[names(mf)=="(weights)"] <- "w"}
-  w <- "w"
+    .check_tweedie_power(tweedie.power)
+    .check_ABT(ABT)
+    .check_n_iter(n.iter)
+    .check_train_fraction(train.fraction)
+    .check_interaction_depth(interaction.depth)
+    .check_shrinkage(shrinkage)
+    .check_bag_fraction(bag.fraction)
+    .check_colsample_bytree(colsample.bytree, length(explVar))
+    .check_keep_data(keep.data)
+    .check_is_verbose(is.verbose)
+    .check_cv_folds(cv.folds)
+    .check_folds_id(folds.id)
+    .check_n_cores(n.cores)
+    .check_weights(mf$w)
 
-  check_tweedie_power(tweedie.power)
-  check_ABT(ABT)
-  check_n_iter(n.iter)
-  check_train_fraction(train.fraction)
-  check_interaction_depth(interaction.depth)
-  check_shrinkage(shrinkage)
-  check_bag_fraction(bag.fraction)
-  check_colsample_bytree(colsample.bytree, length(explVar))
-  check_keep_data(keep.data)
-  check_is_verbose(is.verbose)
-  check_cv_folds(cv.folds)
-  check_folds_id(folds.id)
-  check_n_cores(n.cores)
-  check_weights(mf$w)
+    if (!is.null(interaction.depth) &&
+        tree.control$maxdepth != interaction.depth) {
+      stop(
+        "interaction.depth and maxdepth defined. If interaction.depth is not null it has to be set to maxdepth."
+      )
+    }
 
-  if (!is.null(interaction.depth) && tree.control$maxdepth != interaction.depth){
-    stop("interaction.depth and maxdepth defined. If interaction.depth is not null it has to be set to maxdepth.")
-  }
+    setList <- .create_validation_set(mf, train.fraction)
+    training.set <- setList$training.set
+    validation.set <- setList$validation.set
+    rm(setList)
+    rm(mf)
+    gc()
 
-  setList <- create_validation_set(mf, train.fraction)
-  training.set <- setList$training.set ; validation.set <- setList$validation.set
-  rm(setList) ; rm(mf) ; gc()
+    # Fit full model.
+    if (is.verbose)
+      message("Fit the model on the whole training set. \n")
+    BT_full_results <-
+      BT_call(
+        training.set,
+        validation.set,
+        tweedie.power,
+        respVar,
+        w,
+        explVar,
+        ABT,
+        tree.control,
+        train.fraction,
+        interaction.depth,
+        bag.fraction,
+        shrinkage,
+        n.iter,
+        colsample.bytree,
+        keep.data,
+        is.verbose
+      )
 
-  # Fit full model.
-  if (is.verbose) message("Fit the model on the whole training set. \n")
-  BT_full_results <- BT_call(training.set, validation.set, tweedie.power, respVar, w, explVar, ABT,
-                             tree.control, train.fraction, interaction.depth, bag.fraction, shrinkage, n.iter, colsample.bytree,
-                             keep.data, is.verbose)
+    if (!is.null(folds.id)) {
+      numFolds <- length(unique(folds.id))
+      if (cv.folds != numFolds)
+        warning("CV folds changed from ",
+                cv.folds,
+                " to ",
+                numFolds,
+                " because of levels in folds.id")
+      cv.folds <- numFolds
+      # Transform folds.id index to a numeric vector of index, ascending from 1.
+      folds.id <- as.numeric(as.factor(folds.id))
+    }
 
-  if (!is.null(folds.id)){
-    numFolds <- length(unique(folds.id))
-    if (cv.folds != numFolds) warning("CV folds changed from ", cv.folds, " to ", numFolds, " because of levels in folds.id")
-    cv.folds <- numFolds
-    # Transform folds.id index to a numeric vector of index, ascending from 1.
-    folds.id <- as.numeric(as.factor(folds.id))
-  }
+    if (cv.folds == 1) {
+      BT_full_results$cv.folds <- cv.folds
+      BT_full_results$call <- the_call
+      BT_full_results$Terms <- Terms
+      BT_full_results$seed <- seed
+      return(BT_full_results)
+    }
 
-  if (cv.folds==1){
-    BT_full_results$cv.folds <- cv.folds ; BT_full_results$call <- the_call ; BT_full_results$Terms <- Terms ; BT_full_results$seed <- seed
+    # Else : cv.folds > 1 (or folds.id defined).
+    if (is.verbose)
+      message("Fit the model on the different CV folds. \n")
+    folds <- .create_cv_folds(training.set, cv.folds, folds.id, seed)
+    if (n.cores > 1) {
+      cl <- makeCluster(n.cores)
+      clusterExport(
+        cl,
+        varlist = c(
+          "training.set",
+          "tweedie.power",
+          "respVar",
+          "w",
+          "explVar",
+          "ABT",
+          "tree.control",
+          "train.fraction",
+          "interaction.depth",
+          "bag.fraction",
+          "shrinkage",
+          "n.iter",
+          "colsample.bytree",
+          "keep.data",
+          "is.verbose"
+        ),
+        envir = environment()
+      )
+      BT_cv_results <-
+        parLapply(cl, seq_len(cv.folds), function(xx) {
+          if (!is.null(seed))
+            set.seed(seed * (xx + 1))
+          valIndex <- which(folds == xx)
+          trainIndex <- setdiff(1:length(folds), valIndex)
+          BT_call(
+            training.set[trainIndex,],
+            training.set[valIndex,],
+            tweedie.power,
+            respVar,
+            w,
+            explVar,
+            ABT,
+            tree.control,
+            train.fraction,
+            interaction.depth,
+            bag.fraction,
+            shrinkage,
+            n.iter,
+            colsample.bytree,
+            FALSE,
+            is.verbose
+          ) # We dont keep a copy of each dataset in case of cross-validation, keep.data=FALSE
+        })
+      on.exit(stopCluster(cl))
+
+    } else{
+      # n.cores = 1
+      BT_cv_results <- lapply(seq_len(cv.folds), function(xx) {
+        if (!is.null(seed))
+          set.seed(seed * (xx + 1))
+        valIndex <- which(folds == xx)
+        trainIndex <- setdiff(1:length(folds), valIndex)
+        BT_call(
+          training.set[trainIndex,],
+          training.set[valIndex,],
+          tweedie.power,
+          respVar,
+          w,
+          explVar,
+          ABT,
+          tree.control,
+          train.fraction,
+          interaction.depth,
+          bag.fraction,
+          shrinkage,
+          n.iter,
+          colsample.bytree,
+          FALSE,
+          is.verbose
+        ) # We dont keep a copy of each dataset in case of cross-validation, keep.data=FALSE
+      })
+    }
+    # Different folds -> result object is from a different class.
+    class(BT_cv_results) <- "BTCVFit"
+
+    cv_errors <- .BT_cv_errors(BT_cv_results, cv.folds, folds)
+
+    # Best number of iterations/trees.
+    bestIterCV <- which.min(cv_errors)
+
+    # Prediction on each OOF for the optimal number of iterations.
+    predictions <-
+      predict(BT_cv_results, training.set, cv.folds, folds, bestIterCV)
+
+    # Extract relevant part - all data model.
+    BT_full_results$cv.folds <- cv.folds
+    BT_full_results$folds <- folds
+    BT_full_results$call <- the_call
+    BT_full_results$Terms <- Terms
+    BT_full_results$seed <- seed
+    BT_full_results$BTErrors$cv.error <- cv_errors
+    BT_full_results$cv.fitted <- predictions
+
     return(BT_full_results)
   }
-
-  # Else : cv.folds > 1 (or folds.id defined).
-  if (is.verbose) message("Fit the model on the different CV folds. \n")
-  folds <- create_cv_folds(training.set, cv.folds, folds.id)
-  cl <- makeCluster(n.cores)
-  clusterExport(cl, varlist=c("training.set", "tweedie.power", "respVar", "w", "explVar", "ABT",
-                              "tree.control", "train.fraction", "interaction.depth", "bag.fraction", "shrinkage", "n.iter",
-                              "colsample.bytree", "keep.data", "is.verbose"), envir = environment())
-  BT_cv_results <- parLapply(cl, seq_len(cv.folds), function(xx){
-    if (!is.null(seed)) set.seed(seed*(xx+1))
-    valIndex <- which(folds==xx) ; trainIndex <- setdiff(1:length(folds), valIndex)
-    BT_call(training.set[trainIndex,], training.set[valIndex,], tweedie.power, respVar, w, explVar, ABT,
-            tree.control, train.fraction, interaction.depth, bag.fraction, shrinkage, n.iter, colsample.bytree,
-            FALSE, is.verbose) # We dont keep a copy of each dataset in case of cross-validation, keep.data=FALSE
-  })
-  stopCluster(cl)
-  # Different folds -> result object is from a different class.
-  class(BT_cv_results) <- "BTCVFit"
-
-  cv_errors <- BT_cv_errors(BT_cv_results, cv.folds, folds)
-
-  # Best number of iterations/trees.
-  bestIterCV <- which.min(cv_errors)
-
-  # Prediction on each OOF for the optimal number of iterations.
-  predictions <- predict(BT_cv_results, training.set, cv.folds, folds, bestIterCV)
-
-  # Extract relevant part - all data model.
-  BT_full_results$cv.folds <- cv.folds ; BT_full_results$folds <- folds
-  BT_full_results$call <- the_call ; BT_full_results$Terms <- Terms ; BT_full_results$seed <- seed
-  BT_full_results$BTErrors$cv.error <- cv_errors
-  BT_full_results$cv.fitted <- predictions
-
-  return(BT_full_results)
-}
-
-

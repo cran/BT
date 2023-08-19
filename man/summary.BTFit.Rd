@@ -10,7 +10,7 @@
   n.iter = object$BTParams$n.iter,
   plot_it = TRUE,
   order_it = TRUE,
-  method = BT_relative_influence,
+  method = .BT_relative_influence,
   normalize = TRUE,
   ...
 )
@@ -21,13 +21,13 @@
 \item{cBars}{the number of bars to plot. If \code{order=TRUE} only the variables with the \code{cBars} largest relative influence will appear in the barplot.
 If \code{order=FALSE} then the first \code{cBars} variables will appear in the barplot.}
 
-\item{n.iter}{the number of trees used to compute the relative influence. Only the first \code{n.trees} trees will be used.}
+\item{n.iter}{the number of trees used to compute the relative influence. Only the first \code{n.iter} trees will be used.}
 
 \item{plot_it}{an indicator as to whether the plot is generated.}
 
-\item{order_it}{an indicator as to whether the plotted and/or returned relative influence are sorted.}
+\item{order_it}{an indicator as to whether the plotted and/or returned relative influences are sorted.}
 
-\item{method}{the function used to compute the relative influence. Currently, only \code{\link{BT_relative_influence}} is available (default value as well).}
+\item{method}{the function used to compute the relative influence. Currently, only \code{\link{.BT_relative_influence}} is available (default value as well).}
 
 \item{normalize}{if \code{TRUE} returns the normalized relative influence.}
 
@@ -59,7 +59,7 @@ Paper submitted for publication.
 M. Denuit, J. Trufin and T. Verdebout (2022). \strong{Boosting on the responses with Tweedie loss functions}. Paper submitted for publication.
 }
 \seealso{
-\code{\link{BT}}, \code{\link{BT_relative_influence}}.
+\code{\link{BT}}, \code{\link{.BT_relative_influence}}.
 }
 \author{
 Gireg Willame \email{gireg.willame@gmail.com}

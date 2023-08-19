@@ -33,21 +33,18 @@
 #' M. Denuit, J. Trufin and T. Verdebout (2022). \strong{Boosting on the responses with Tweedie loss functions}. Paper submitted for publication.
 #'
 #' @rdname BT_cv_errors
-#' @export
-#'
-BT_cv_errors <- function(BT_cv_fit, cv.folds, folds) {
+#' @keywords internal
+.BT_cv_errors <- function(BT_cv_fit, cv.folds, folds) {
   UseMethod("BT_cv_errors", BT_cv_fit)
 }
 
 #' @keywords internal
-#'
-BT_cv_errors.BTCVFit <- function(BT_cv_fit, cv.folds, folds){
+BT_cv_errors.BTCVFit <- function(BT_cv_fit, cv.folds, folds) {
+  .check_if_BTCV_fit(BT_cv_fit)
 
-  check_if_BTCV_fit(BT_cv_fit)
-
-  in_group <- tabulate(folds, nbins=cv.folds)
+  in_group <- tabulate(folds, nbins = cv.folds)
   cv_error <- vapply(seq_len(cv.folds),
-                     function(xx){
+                     function(xx) {
                        model <- BT_cv_fit[[xx]]
                        model$BTErrors$validation.error * in_group[xx]
                      }, double(BT_cv_fit[[1]]$BTParams$n.iter)) # Similar structure for each BT_cv_fit.

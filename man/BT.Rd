@@ -21,7 +21,11 @@ BT(
   folds.id = NULL,
   n.cores = 1,
   tree.control = rpart.control(xval = 0, maxdepth = (if (!is.null(interaction.depth)) {
-        interaction.depth } else {     10 }), cp = -Inf, minsplit = 2),
+ 
+       interaction.depth
+ } else {
+     10
+ }), cp = -Inf, minsplit = 2),
   weights = NULL,
   seed = NULL,
   ...
@@ -39,8 +43,8 @@ Instead, everything is performed with a log-link function and a direct relations
 \item{ABT}{a boolean parameter. If \code{ABT=TRUE} an adaptive boosting tree algorithm is built whereas if \code{ABT=FALSE} an usual boosting tree algorithm is run.
 By default, it is set to \code{TRUE}.}
 
-\item{n.iter}{the total number of iterations to fit. This is equivalent to the number of trees and the number of basis function in the additive expansion.
-Please note that the initialization is not taken into account in the \code{n.iter}. More explicitly, a first GLM initializes the algorithm and then \code{n.iter} trees
+\item{n.iter}{the total number of iterations to fit. This is equivalent to the number of trees and the number of basis functions in the additive expansion.
+Please note that the initialization is not taken into account in the \code{n.iter}. More explicitly, a weighted average initializes the algorithm and then \code{n.iter} trees
 are built. Moreover, note that the \code{bag.fraction}, \code{colsample.bytree}, ... are not used for this initializing phase.
 By default, it is set to 100.}
 
@@ -57,7 +61,6 @@ This option is devoted to advanced users only and allows them to benefit from th
 
 \item{bag.fraction}{the fraction of independent training observations randomly selected to propose the next tree in the expansion.
 This introduces randomness into the model fit. If \code{bag.fraction}<1 then running the same model twice will result in similar but different fits.
-\code{BT} uses the R random number generator, so \code{set.seed} ensures the same model can be reconstructed.
 Please note that if this parameter is used the \code{BTErrors$training.error} corresponds to the normalized in-bag error and the out-of-bag improvements
 are computed and stored in \code{BTErrors$oob.improvement}. See \code{\link{BTFit}} for more details.
 By default, it is set to 1.}
@@ -66,9 +69,9 @@ By default, it is set to 1.}
 random subset of features from the formula, adding variability to the algorithm and reducing computation time. \code{colsample.bytree} will be bounded between
 1 and the number of features considered in the formula. By default, it is set to \code{NULL} meaning no effect.}
 
-\item{keep.data}{a boolean variable indicating whether to keep the data frames or not. This is particularly useful if one wants to keep track of the initial data frames
+\item{keep.data}{a boolean variable indicating whether to keep the data frames. This is particularly useful if one wants to keep track of the initial data frames
 and is further used for predicting in case any data frame is specified.
-Note that in case of cross-validation, if \code{keep.data=TRUE} the initial data frames is saved whereas the cross-validation samples are not.
+Note that in case of cross-validation, if \code{keep.data=TRUE} the initial data frames are saved whereas the cross-validation samples are not.
 By default, it is set to \code{FALSE}.}
 
 \item{is.verbose}{if \code{is.verbose=TRUE}, the \code{BT} will print out the algorithm progress. By default, it is set to \code{FALSE}.}
@@ -80,12 +83,13 @@ will perform a cross-validation and calculate an estimate of generalization erro
 By default, \code{folds.id = NULL} meaning that no folds are defined.}
 
 \item{n.cores}{the number of cores to use for parallelization. This parameter is used during the cross-validation.
-By default, it is set to 1.}
+This parameter is bounded between 1 and the maximum number of available cores.
+By default, it is set to 1 leading to a sequential approach.}
 
 \item{tree.control}{for advanced user only. It allows to define additional tree parameters that will be used at each iteration.
 See \code{\link{rpart.control}} for more information.}
 
-\item{weights}{optional vector of weights used in the fitting process. These weights must be positive but does not need to be normalized.
+\item{weights}{optional vector of weights used in the fitting process. These weights must be positive but do not need to be normalized.
 By default, it is set to \code{NULL} which corresponds to an uniform weight of 1 for each observation.}
 
 \item{seed}{optional number used as seed. Please note that if \code{cv.folds}>1, the \code{parLapply} function is called.
@@ -97,7 +101,7 @@ Therefore, the seed (if defined) used inside each fold will be a multiple of the
 a \code{\link{BTFit}} object.
 }
 \description{
-Perform the (Adaptive) Boosting Trees algorithm. This prepare the inputs and call the function \code{\link{BT_call}}.
+Performs the (Adaptive) Boosting Trees algorithm. This code prepares the inputs and calls the function \code{\link{BT_call}}.
 Each tree in the process is built thanks to the \code{\link{rpart}} function.
 In case of cross-validation, this function prepares the folds and performs multiple calls to the fitting function \code{\link{BT_call}}.
 }
@@ -106,28 +110,11 @@ The NA values are currently dropped using \code{na.omit}.
 }
 \examples{
 \donttest{
-## Create some dataset.
-set.seed(4)
-n <- 10000
-
-Gender <- factor(sample(c("male","female"), n, replace=TRUE))
-Age <- sample(c(18:65), n, replace=TRUE)
-Split <- factor(sample(c("yes","no"), n, replace=TRUE))
-Sport <- factor(sample(c("yes","no"), n, replace=TRUE))
-
-lambda <- 0.1*ifelse(Gender=="male", 1.1, 1)
-lambda <- lambda*(1+1/(Age-17)^0.5)
-lambda <- lambda*ifelse(Sport=="yes", 1.15, 1)
-
-ExpoR <- runif(n)
-
-Y <- rpois(n, ExpoR*lambda)
-Y_normalized <- Y/ExpoR
-
-dataset <- data.frame(Y,Gender,Age,Split,Sport,ExpoR, Y_normalized)
+## Load dataset.
+dataset <- BT::BT_Simulated_Data
 
 ## Fit a Boosting Tree model.
-BT_algo <- BT(formula = as.formula("Y_normalized ~ Age + Sport + Split + Gender"), # formula
+BT_algo <- BT(formula = Y_normalized ~ Age + Sport + Split + Gender, # formula
               data = dataset, # data
               ABT = FALSE, # Classical Boosting Tree
               n.iter = 200,
@@ -187,7 +174,7 @@ M. Denuit, J. Trufin and T. Verdebout (2022). \strong{Boosting on the responses 
 }
 \seealso{
 \code{\link{BTFit}}, \code{\link{BTCVFit}}, \code{\link{BT_call}}, \code{\link{BT_perf}}, \code{\link{predict.BTFit}},
-\code{\link{summary.BTFit}}, \code{\link{print.BTFit}}, \code{\link{BT_cv_errors}}.
+\code{\link{summary.BTFit}}, \code{\link{print.BTFit}}, \code{\link{.BT_cv_errors}}.
 }
 \author{
 Gireg Willame \email{gireg.willame@gmail.com}

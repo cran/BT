@@ -1,7 +1,7 @@
 Package: BT
 Title: (Adaptive) Boosting Trees Algorithm
-Version: 0.3
-Date: 2023-01-25
+Version: 0.4
+Date: 2023-08-19
 Authors@R: 
     c(person("Gireg", "Willame", email = "gireg.willame@gmail.com", role = c("aut", "cre", "cph")))
 Author: Gireg Willame [aut, cre, cph]
@@ -22,10 +22,11 @@ URL: https://github.com/GiregWillame/BT/
 BugReports: https://github.com/GiregWillame/BT/issues/
 License: GPL (>= 3)
 Encoding: UTF-8
-RoxygenNote: 7.1.2
+RoxygenNote: 7.2.3
 Config/testthat/edition: 3
 VignetteBuilder: knitr
+LazyData: true
 NeedsCompilation: no
-Packaged: 2023-01-28 14:17:26 UTC; Gireg Willame
+Packaged: 2023-08-19 08:57:10 UTC; Gireg Willame
 Repository: CRAN
-Date/Publication: 2023-01-30 16:40:07 UTC
+Date/Publication: 2023-08-19 09:22:33 UTC

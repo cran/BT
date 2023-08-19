@@ -2,15 +2,9 @@
 % Please edit documentation in R/BT_Print.R
 \name{print.BTFit}
 \alias{print.BTFit}
-\alias{print_iters_and_dist}
-\alias{print_perf_measures}
-\title{Printing functions.}
+\title{Printing function.}
 \usage{
 \method{print}{BTFit}(x, ...)
-
-print_iters_and_dist(x)
-
-print_perf_measures(x)
 }
 \arguments{
 \item{x}{a \code{\link{BTFit}} object.}
@@ -18,10 +12,10 @@ print_perf_measures(x)
 \item{\dots}{arguments passed to \code{print.default}.}
 }
 \value{
-No return value.
+No value returned.
 }
 \description{
-Functions to print the BT results.
+Function to print the BT results.
 }
 \details{
 Print the different input parameters as well as obtained results (best iteration/performance & relative influence) given the chosen approach.
@@ -42,7 +36,7 @@ Paper submitted for publication.
 M. Denuit, J. Trufin and T. Verdebout (2022). \strong{Boosting on the responses with Tweedie loss functions}. Paper submitted for publication.
 }
 \seealso{
-\code{\link{BT}}, \code{\link{BT_relative_influence}}, \code{\link{BT_perf}}.
+\code{\link{BT}}, \code{\link{.BT_relative_influence}}, \code{\link{BT_perf}}.
 }
 \author{
 Gireg Willame \email{gireg.willame@gmail.com}
